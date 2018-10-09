@@ -11,6 +11,9 @@ public class QuickSort {
         nums = new int[]{8,7,5,4,2,1};
         quickSort(nums, 0, nums.length - 1);
         System.out.println(Arrays.toString(nums));
+        nums = new int[]{8,7,5,4,2,1,20};
+        quickSort(nums, 0, nums.length - 1);
+        System.out.println(Arrays.toString(nums));
 
     }
 
@@ -58,18 +61,23 @@ public class QuickSort {
             // equal to pivot
             if (arr[j] <= pivot) {
                 i++;
-
+                System.out.printf("a[%d]=%d, a[%d]=%d\n", i, arr[i], j, arr[j]);
                 // swap arr[i] and arr[j]
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+                if (i != j) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
             }
         }
 
         // swap arr[i+1] and arr[high] (or pivot)
-        int temp = arr[i + 1];
-        arr[i + 1] = arr[high];
-        arr[high] = temp;
+        System.out.printf("i+1=%d, high=%d\n", i+1, high);
+        if (i+1 != high) {
+            int temp = arr[i + 1];
+            arr[i + 1] = arr[high];
+            arr[high] = temp;
+        }
 
         return i + 1;
     }
