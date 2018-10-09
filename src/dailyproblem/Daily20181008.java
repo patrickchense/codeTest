@@ -27,6 +27,6 @@ public class Daily20181008 {
 
      */
     private static int findMissingPositive(int[] nums) {
-
+        return -1;
     }
 }
