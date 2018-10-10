@@ -38,28 +38,29 @@ public class Stairs {
        recursion
      */
     private static int countWays(int n) {
-        if (n == 1) {
+        if (n == 1 || n == 0) {
             return 1;
         }
         if (n == 2) return 2;
-        return countWays(n-1) + countWays(n-2) + 1;
+        return countWays(n-1) + countWays(n-2) + countWays(n-3);
     }
 
     /*
        d[1] = 1
        d[2] = d[1] + 1 = 2
-       d[3] = d[1] + 1 + d[2] = 4
-       d[4] = d[2] + d[3] + 1 = 7
-       d[5] = d[4] + d[3] + 1 = 12
+       d[3] = d[0] + d[1] + d[2] = 4
+       d[4] = d[2] + d[3] + d[1] = 7
+       d[5] = d[4] + d[3] + d[2] = 13
      */
     private static int dpSolution(int n) {
-        int[] dp = new int[n];
+        int[] dp = new int[n+1];
         dp[0] = 1;
-        dp[1] = 2;
-        if (n <= 2) return dp[n-1];
+        dp[1] = 1;
+        dp[2] = 2;
+        if (n <= 2) return dp[n];
         for (int i = 3; i <= n; i++) {
-            dp[i-1] = dp[i-3] + dp[i-2] + 1;
+            dp[i] = dp[i-3] + dp[i-2] + dp[i-1];
         }
-        return dp[n-1];
+        return dp[n];
     }
 }
