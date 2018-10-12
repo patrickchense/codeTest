@@ -51,6 +51,6 @@ public class PairSum {
 
         }
 
-        int sum(String prefix) {}
+        int sum(String prefix) {return 0;}
     }
 }
