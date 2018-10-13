@@ -42,15 +42,5 @@ public class PairSum {
 
     }
 
-    class MapSum {
 
-        String[] keys;
-        int[] vals;
-
-        void insert(String key, Integer val) {
-
-        }
-
-        int sum(String prefix) {return 0;}
-    }
 }
