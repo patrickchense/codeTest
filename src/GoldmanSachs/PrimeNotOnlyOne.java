@@ -6,4 +6,6 @@ Prime factorization of a list of numbers. (It’s has been mathematical proven b
 
  */
 public class PrimeNotOnlyOne {
+
+
 }
