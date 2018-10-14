@@ -92,6 +92,26 @@ if (index == k)  {
         }
 ```
 
+##Parentheses
+n个括号(brackets)的所有组合方式
+###@inclass
+###solution
+understand backtracking, classic
+其实就是DFS的recursion的一种应用
+
+##BinaryWatch
+n个LED亮，给出时间
+###@inclass
+###solution
+关键在于表达时间的组合数组的递归和记录位置
+
+
+
+##总结
+###题型
+目前遇见的backtracking的题目，类似"n个什么，按什么方式组合，所有的的组合结果"，然后一般都是两个状态，任意可以组合
+###解决
+都是用DFS的recursion，然后利用每次回溯的时候，之前已经产生的结果被清除的后，可以继续添加新的可能
 
 
 
