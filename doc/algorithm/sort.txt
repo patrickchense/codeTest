@@ -1,0 +1,342 @@
+所有的排序:
+比较排序：
+冒泡, O(n^2), 通常被插入代替(交换的次数更少)
+插入
+快速
+堆
+希尔
+选择
+归并
+其他： 鸡尾酒， 梳，侏儒，图书馆，内省，奇偶
+
+交换，选择，插入，归并，分布，并发，混合几大类
+交换：
+鸡尾酒， 冒泡变形，对于大部分排序的可以解决O(n), 头尾两次比较(大，小), 交换次数更少
+奇偶，奇-偶，偶-奇，不停的与相邻比较交换，知道没有swap则成功
+梳排序，变种冒泡，就是偏移的步长不在是1，而是最初=length, 然后根据(0.8)递减，效率从高到低，gap=1 时就是冒泡排序, 不稳定
+快排，O(nlogn), 通常很有效，是分治排序的一种实现，最坏O(n2), 还有一种原地排序的变形(节省O(n)的额外空间，使用了O(1))，原理，挑pivot, 然后pivot左小右大，左右在分别排序
+
+public list sort(q) {
+	var list, less, pivotList, greater
+	if (len(q) <= 1) {
+		return q
+	}
+else {
+	choose a pivot
+           for each x in q except pivot {
+	if x < pivot put x in less
+           else if x >= pivot put x in greater
+   }
+add pivot to pivotList
+    return comcreteList(sort(less) + pivotList + sort(greater))
+}
+}
+快速与堆排序，归并排序 来竞争
+堆，最坏O(nlogn), 但是需要固定的O(logn)空间，归并也是最坏O(nlogn), 需要O(n)空间，归并是稳定的，快速和堆都不是
+
+public static void qSort(int[] arr, int head, int tail) {
+        if (head >= tail || arr == null || arr.length <= 1) {
+            return;
+        }
+        int i = head, j = tail, pivot = arr[(head + tail) / 2];
+        while (i <= j) {
+            while (arr[i] < pivot) {
+                ++i;
+            }
+            while (arr[j] > pivot) {
+                --j;
+            }
+            if (i < j) {
+                int t = arr[i];
+                arr[i] = arr[j];
+                arr[j] = t;
+                ++i;
+                --j;
+            } else if (i == j) {
+                ++i;
+            }
+        }
+        qSort(arr, head, j);
+        qSort(arr, i, tail);
+    }
+
+
+选择：
+选择排序: 找到最大/最小，放到头/尾，然后继续下一个, 选择排序都与移动有关，原地排序是唯一的优点，比冒泡稍快，空间复杂度要求高，可用
+public static void selectionSort(int[] arr) {
+	    int min, temp;
+        for (int i = 0; i < arr.length; i++) {
+            // 初始化未排序序列中最小数据数组下标
+            min = i;
+
+            for (int j = i; j < arr.length; j++) {
+                // 在未排序元素中继续寻找最小元素，并保存其下标
+                if (arr[j] < arr[min]) {
+                    min = j;
+                }
+            }
+
+            // 将未排序列中最小元素放到已排序列末尾
+            temp = arr[min];
+            arr[min] = arr[i];
+            arr[i] = temp;
+        }
+    }
+}
+
+堆排序：堆来实现完全二叉树，然后根小于/大于子节点，
+func HeapSort(array []int) {
+	m := len(array)
+	s := m/2
+	for i := s; i > -1; i-- {
+		heap(array, i, m-1)
+	}
+	for i := m-1; i > 0; i-- {
+		array[i], array[0] = array[0], array[i]
+		heap(array, 0, i-1)
+	}
+}
+
+func heap(array []int, i, end int){
+	l := 2*i+1
+	if l > end {
+		return
+	}
+	n := l
+	r := 2*i+2
+	if r <= end && array[r]>array[l]{
+		n = r
+	}
+	if array[i] > array[n]{
+		return
+	}
+	array[n], array[i] = array[i], array[n]
+	heap(array, n, end)
+}
+
+
+插入:
+插入排序： O(1) 空间, 对于已排序的队列，从后往前找到下一个元素的位置，插入, 可用使用二分搜索来减少比较的次数， O(n2), 稳定
+public void insertionSort(int[] array) {
+		for (int i = 1; i < array.length; i++) {
+			int key = array[i];
+			int j = i - 1;
+			while (j >= 0 && array[j] > key) {
+				array[j + 1] = array[j];
+				j--;
+			}
+			array[j + 1] = key;
+		}
+	}
+希尔，插入的变形，不稳定，设置步长，从大步长到1，最后就是插入, 步长一般初设n/2
+public static void shellSort(int[] array) {
+    int number = array.length / 2;
+    int i;
+    int j;
+    int temp;
+    while (number >= 1) {
+        for (i = number; i < array.length; i++) {
+            temp = array[i];
+            j = i - number;
+            while (j >= 0 && array[j] < temp) {
+                array[j + number] = array[j];
+                j = j - number;
+            }
+            array[j + number] = temp;
+        }
+        number = number / 2;
+    }
+}
+
+归并：
+归并排序：O(nlogn), 递归,
+申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列
+设定两个指针，最初位置分别为两个已经排序序列的起始位置
+比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置
+重复步骤3直到某一指针到达序列尾
+将另一序列剩下的所有元素直接复制到合并序列尾
+迭代:
+将序列每相邻两个数字进行归并操作，形成ceil(n/2)个序列，排序后每个序列包含两/一个元素
+若此时序列数不是1个则将上述序列再次归并，形成 ceil(n/4)个序列，每个序列包含四/三个元素
+重复步骤2，直到所有元素排序完毕，即序列数为1
+static void merge_sort_recursive(int[] arr, int[] result, int start, int end) {
+	if (start >= end)
+		return;
+	int len = end - start, mid = (len >> 1) + start;
+	int start1 = start, end1 = mid;
+	int start2 = mid + 1, end2 = end;
+	merge_sort_recursive(arr, result, start1, end1);
+	merge_sort_recursive(arr, result, start2, end2);
+	int k = start;
+	while (start1 <= end1 && start2 <= end2)
+		result[k++] = arr[start1] < arr[start2] ? arr[start1++] : arr[start2++];
+	while (start1 <= end1)
+		result[k++] = arr[start1++];
+	while (start2 <= end2)
+		result[k++] = arr[start2++];
+	for (k = start; k <= end; k++)
+		arr[k] = result[k];
+}
+public static void merge_sort(int[] arr) {
+	int len = arr.length;
+	int[] result = new int[len];
+	merge_sort_recursive(arr, result, 0, len - 1);
+}
+
+public static void merge_sort(int[] arr) {
+  int[] orderedArr = new int[arr.length];
+        for (int i = 2; i < arr.length * 2; i *= 2) {
+            for (int j = 0; j < (arr.length + i - 1) / i; j++) {
+                int left = i * j;
+                int mid = left + i / 2 >= arr.length ? (arr.length - 1) : (left + i / 2);
+                int right = i * (j + 1) - 1 >= arr.length ? (arr.length - 1) : (i * (j + 1) - 1);
+                int start = left, l = left, m = mid;
+                while (l < mid && m <= right) {
+                    if (arr[l] < arr[m]) {
+                        orderedArr[start++] = arr[l++];
+                    } else {
+                        orderedArr[start++] = arr[m++];
+                    }
+                }
+                while (l < mid)
+                    orderedArr[start++] = arr[l++];
+                while (m <= right)
+                    orderedArr[start++] = arr[m++];
+                System.arraycopy(orderedArr, left, arr, left, right - left + 1);
+            }
+        }
+}
+
+https://www.geeksforgeeks.org/iterative-merge-sort/
+
+
+
+稳定与不稳定
+
+各自特点，复杂度分析，实现逻辑
+
+时间排序：
+鸽巢，基数，计数，桶，偏排序
+计数排序:
+稳定的线性时间排序算法
+使用一个额外的数组C，其中第i个元素是待排序数组 A中值等于 i的元素的个数
+n个0-k的数值排序，运行时间O(n+k), 速度比比较排序要快
+找出待排序的数组中最大和最小的元素
+统计数组中每个值为 i的元素出现的次数，存入数组 C的第 i项
+对所有的计数累加（从 C中的第一个元素开始，每一项和前一项相加）
+反向填充目标数组：将每个元素 i放在新数组的第 C[i]项，每放一个元素就将 C[i]减去1
+public static int[] countSort(int []a){
+		int b[] = new int[a.length];
+		int max = a[0], min = a[0];
+		for(int i : a){
+			if(i > max){
+				max = i;
+			}
+			if(i < min){
+				min = i;
+			}
+		}
+		//这里k的大小是要排序的数组中，元素大小的极值差+1
+		int k = max - min + 1;
+		int c[] = new int[k];
+		for(int i = 0; i < a.length; ++i){
+			c[a[i]-min] += 1;//优化过的地方，减小了数组c的大小
+		}
+		for(int i = 1; i < c.length; ++i){
+			c[i] = c[i] + c[i-1];
+		}
+		for(int i = a.length-1; i >= 0; --i){
+			b[--c[a[i]-min]] = a[i];//按存取的方式取出c的元素
+		}
+		return b;
+	}
+
+基数排序
+O(k*n), k的大小取决于数字的比特位数
+int maxbit(int data[], int n) //辅助函数，求数据的最大位数
+{
+    int maxData = data[0];		///< 最大数
+    /// 先求出最大数，再求其位数，这样有原先依次每个数判断其位数，稍微优化点。
+    for (int i = 1; i < n; ++i)
+    {
+        if (maxData < data[i])
+            maxData = data[i];
+    }
+    int d = 1;
+    int p = 10;
+    while (maxData >= p)
+    {
+        //p *= 10; // Maybe overflow
+        maxData /= 10;
+        ++d;
+    }
+    return d;
+/*    int d = 1; //保存最大的位数
+    int p = 10;
+    for(int i = 0; i < n; ++i)
+    {
+        while(data[i] >= p)
+        {
+            p *= 10;
+            ++d;
+        }
+    }
+    return d;*/
+}
+void radixsort(int data[], int n) //基数排序
+{
+    int d = maxbit(data, n);
+    int *tmp = new int[n];
+    int *count = new int[10]; //计数器
+    int i, j, k;
+    int radix = 1;
+    for(i = 1; i <= d; i++) //进行d次排序
+    {
+        for(j = 0; j < 10; j++)
+            count[j] = 0; //每次分配前清空计数器
+        for(j = 0; j < n; j++)
+        {
+            k = (data[j] / radix) % 10; //统计每个桶中的记录数
+            count[k]++;
+        }
+        for(j = 1; j < 10; j++)
+            count[j] = count[j - 1] + count[j]; //将tmp中的位置依次分配给每个桶
+        for(j = n - 1; j >= 0; j--) //将所有桶中记录依次收集到tmp中
+        {
+            k = (data[j] / radix) % 10;
+            tmp[count[k] - 1] = data[j];
+            count[k]--;
+        }
+        for(j = 0; j < n; j++) //将临时数组的内容复制到data中
+            data[j] = tmp[j];
+        radix = radix * 10;
+    }
+    delete []tmp;
+    delete []count;
+}
+
+偏排序
+偏排序返回的列表中，仅有 k 个最小(或 k 个最大)的元素是有序的
+最普遍的实例是计算某个列表的 "Top 100"
+堆解决: 插入k个顺序到堆中，需要O(k) 空间，O(nlogk),
+划分: 简化为基于分区的选择; 原本的偏排序问题可以通过基于选择算法来解决，这将得到一个包含前 k 个最小元素并保证它们有序的数组，总体耗费 O(n + k log k)该算法方案的一个流行实现是结合快速选择与快速排序，该结果常称为 "quickselsort"
+专门的: 基于归并排序与快速排序的专门偏排序算法, 在快速排序的变体里，不需要对只包含最终排序后数组(从左边界开始)的第 k 个位置之后元素的划分(partition)，进行递归的排序。因此，如果支点(pivot)在 k 之后, 我们的递归仅限于左边的划分(partition):
+function partial_quicksort(A, i, j, k)
+     if i < j
+         p ← pivot(A, i, j)
+         p ← partition(A, i, j, p)
+         partial_quicksort(A, i, p-1, k)
+         if p < k-1
+             partial_quicksort(A, p+1, j, k)
+
+
+
+并行排序：
+排序网络，Batcher归并排序
+
+图：
+
+拓扑
+
+
+

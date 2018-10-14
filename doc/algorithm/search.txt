@@ -1,0 +1,240 @@
+https://docs.google.com/document/d/1hiuI_cmd5zceDirYXAaNZD8o1jr6LdGyO8QhAy45GgM/edit
+列表：
+二分， 实现， 有没有变种
+
+
+
+树：
+广度优先
+BFS是从根节点开始，沿着树的宽度遍历树的节点。如果所有节点均被访问，则算法中止。广度优先搜索的实现一般采用open-closed表
+所有因为展开节点而得到的子节点都会被加进一个先进先出的队列中。一般的实现里，其邻居节点尚未被检验过的节点会被放置在一个被称为 open 的容器中（例如队列或是链表），而被检验过的节点则被放置在被称为 closed 的容器中
+首先将根节点放入队列中。
+从队列中取出第一个节点，并检验它是否为目标。
+如果找到目标，则结束搜索并回传结果。
+否则将它所有尚未检验过的直接子节点加入队列中。
+若队列为空，表示整张图都检查过了——亦即图中没有欲搜索的目标。结束搜索并回传“找不到目标”。
+重复步骤2。
+空间复杂度为 O(|V|+|E|)，其中 |V|是节点的数目，而 |E|是图中边的数目
+由于对空间的大量需求，因此BFS并不适合解非常大的问题
+最差情况，搜索所有节点，时间复杂度 O(|V|+|E|)
+若所有边的长度相等，广度优先搜索算法是最佳解——亦即它找到的第一个解，距离根节点的边数目一定最少；但对一般的图来说，BFS并不一定回传最佳解。这是因为当图形为加权图（亦即各边长度不同）时，BFS仍然回传从根节点开始，经过边数目最少的解；而这个解距离根节点的距离不一定最短。这个问题可以使用考虑各边权值，BFS的改良算法成本一致搜索法来解决。然而，若非加权图形，则所有边的长度相等，BFS就能找到最近的最佳解
+广度优先搜索算法能用来解决图论中的许多问题，例如：
+查找图中所有连接组件（Connected Component）。一个连接组件是图中的最大相连子图。
+查找连接组件中的所有节点。
+查找非加权图中任两点的最短路径。
+测试一图是否为二分图。
+
+Queue<Character> q=new LinkedList<>();
+    q.add(start);//将s作为起始顶点加入队列
+    dist.put(start, 0);
+    int i=0;
+    while(!q.isEmpty())
+    {
+        char top=q.poll();//取出队首元素
+        i++;
+        System.out.println("The "+i+"th element:"+top+" Distance from s is:"+dist.get(top));
+        int d=dist.get(top)+1;//得出其周边还未被访问的节点的距离
+        for (Character c : graph.get(top)) {
+            if(!dist.containsKey(c))//如果dist中还没有该元素说明还没有被访问
+            {
+                dist.put(c, d);
+                q.add(c);
+            }
+        }
+    }
+
+
+
+变种:
+戴克斯特拉算法(Dijkstra's algorithm)
+最初的戴克斯特拉算法不采用最小优先级队列，时间复杂度是 O(|V|^{2})(其中 |V|为图的顶点个数)。通过斐波那契堆实现的戴克斯特拉算法时间复杂度是 O(|E|+|V|\log |V|) (其中 |E|是边数) 使用了广度优先搜索解决赋权有向图的单源最短路径问题
+边的拓展是Dijkstra 算法的基础操作：如果存在一条从 u 到 v 的边，那么从 s 到 v 的最短路径可以通过将边（u, v）添加到尾部来拓展一条从 s 到 v 的路径。这条路径的长度是 d[u] + w(u, v)。如果这个值比目前已知的 d[v] 的值要小，我们可以用新值来替代当前 d[v] 中的值。拓展边的操作一直运行到所有的 d[v] 都代表从 s 到 v 的最短路径的长度值。此算法的组织令 d[u] 达到其最终值时，每条边（u, v）都只被拓展一次
+算法维护两个顶点集合 S 和 Q。集合 S 保留所有已知最小 d[v] 值的顶点 v ，而集合 Q 则保留其他所有顶点。集合S初始状态为空，而后每一步都有一个顶点从 Q 移动到 S。这个被选择的顶点是 Q 中拥有最小的 d[u] 值的顶点。当一个顶点 u 从 Q 中转移到了 S 中，算法对 u 的每条外接边 (u, v) 进行拓展
+const int maxn = 500000 + 100;
+ 9
+10 struct edge {
+11 	int v, w, next;
+12 	edge(int v=0, int w=0, int next=0) : v(v), w(w), next(next) {
+13 		v=v; w=w; next=next;
+14 	}
+15 }e[maxn];
+16 int front[maxn], tot=0;
+17
+18 int Addedge(int u, int v, int w) {
+19 	tot++;
+20 	e[tot].v = v;
+21 	e[tot].w = w;
+22 	e[tot].next = front[u];
+23 	front[u] = tot;
+24 }
+25
+26 int N, M, S;
+27
+28 void Readin() {
+29 	ios::sync_with_stdio(false);
+30 	cin >> N >> M >> S;
+31 	for(int i = 1; i <= M; i++) {
+32 		int u, v, w;
+33 		cin >> u >> v >> w;
+34 		Addedge(u, v, w);
+35 	}
+36 }
+37
+38 struct Heap {
+39 	int id, w;
+40 	bool operator < (const Heap &rhs) const {
+41 		return w < rhs.w;
+42 	}
+43 };
+44
+45 int dis[maxn];
+46 int Dijkstra(int s) {
+47 	priority_queue<Heap> q;
+48 	for(int i = 1; i <= N; i++) dis[i] = 2147483647;
+49 	dis[s] = 0;
+50 	q.push(Heap{s, dis[s]});
+51 	while(!q.empty()) {
+52 		Heap x = q.top(); q.pop();
+53 		if(dis[x.id] != x.w) continue;
+54 		for(int i = front[x.id]; i != 0; i = e[i].next) {
+55 			int k = e[i].v;
+56 			if(dis[k] > dis[x.id] + e[i].w) {
+57 				dis[k] = dis[x.id] + e[i].w;
+58 				q.push(Heap{k, dis[k]});
+59 			}
+60 		}
+61 	}
+62 	for(int i =  1; i <= N; i++) cout << dis[i] << ' ';
+63 	cout << endl;
+64 	return 0;
+65 }
+
+
+
+
+
+深度优先
+首先将根节点放入队列中。
+从队列中取出第一个节点，并检验它是否为目标。
+如果找到目标，则结束搜寻并回传结果。
+否则将它某一个尚未检验过的直接子节点加入队列中。
+重复步骤2。
+如果不存在未检测过的直接子节点。
+将上一级节点加入队列中。
+重复步骤2。
+重复步骤4。
+若队列为空，表示整张图都检查过了——亦即图中没有欲搜寻的目标。结束搜寻并回传“找不到目标
+const int TREE_SIZE = 9;
+ 2 std::stack<Node *> unvisited;
+ 3 Node nodes[TREE_SIZE];
+ 4 Node *current;
+ 5
+ 6 //初始化树
+ 7 for (int i = 0; i < TREE_SIZE; i++) {
+ 8    nodes[i].self = i;
+ 9    int child = i * 2 + 1;
+10    if (child < TREE_SIZE) // Left child
+11        nodes[i].left = &nodes[child];
+12    else
+13        nodes[i].left = NULL;
+14    child++;
+15    if (child < TREE_SIZE) // Right child
+16        nodes[i].right = &nodes[child];
+17    else
+18        nodes[i].right = NULL;
+19 }
+20
+21 unvisited.push(&nodes[0]); //先把0放入UNVISITED stack
+22
+23 // 只有UNVISITED不空
+24 while (!unvisited.empty()) {
+25    current = (unvisited.top()); //当前应该访问的
+26    unvisited.pop();
+27    if (current->right != NULL)
+28        unvisited.push(current->left); // 把左边压入 因为左边的访问次序是在右边之前
+29    else
+30        unvisited.push(current->right); // 每次只选取一个叶子节点加入堆栈中（左节点不存在时则压入右节点）
+31    cout << current->self << endl;
+32 }
+
+
+双方向
+分支限定
+
+字符串：
+克努斯-莫里斯-普拉特
+又称KMP
+可在一个主文本字符串S内查找一个词W的出现位置。此算法通过运用对这个词在不匹配时本身就包含足够的信息来确定下一个匹配将在哪里开始的发现，从而避免重新检查先前匹配的字符
+最简单的方式是，一位位比较，一旦失败，i++, 然后比较位回0，两个for搞定
+ //通过计算返回字串t的next数组
+    public int[] get_next(char[] t){
+   	 int lengthT = t.length;
+   	 int[] next = new int[lengthT];
+   	 next[0] = -1;
+   	 int i = 0;
+   	 int j = -1;
+   	 while(i < lengthT-1){
+   		 //t.charAt(i)表示后缀的单个字符,t.charAt(j)表示前缀的单个字符
+   		 if(j == -1 || t[i] == t[j]){
+   			 ++i;
+   			 ++j;
+   			 next[i] = j;
+   		 }else{
+   			 //若字符不相同，则j值回溯
+   			 j = next[j];
+   		 }
+   	 }
+   	 return next;
+    }
+    //改进版求next
+    public int[] get_nextval(char[] t){
+   	 int[] nextval = new int[t.length];
+   	 nextval[0] = -1;
+   	 int i = 0;
+   	 int j = -1;
+   	 while(i < t.length - 1){
+   		 if(j == -1 || t[i] == t[j]){
+   			 ++i;
+   			 ++j;
+   			 if(t[i] != t[j]){
+   				 nextval[i] = j;
+   			 }else{
+   				 nextval[i] = nextval[j];
+   			 }
+   		 }else{
+   			 j = nextval[j];
+   		 }
+   	 }
+   	 return nextval;
+    }
+    //s是主串，t是子串，匹配成功返回下标，匹配不成功返回-1
+    public int kmp_Index(char[] s, char[] t){
+   	 int[] next = get_nextval(t);
+   	 int i = 0;
+   	 int j = 0;
+   	 while(i <= s.length - 1 && j <= t.length - 1){
+   		 if(j == -1 || s[i] == t[j]){
+   			 ++i;
+   			 ++j;
+   		 }else{
+   			 j = next[j];
+   		 }
+   	 }
+   	 if(j < t.length){
+   		 return -1;
+   	 }else{
+   		 return i - t.length;
+   	 }
+
+
+    }
+
+
+Boyer-Moore
+AC自动机
+Rabin-Karp
+位图
+
+
+
+
