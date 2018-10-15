@@ -7,7 +7,7 @@ import java.util.Arrays;
  Given sequence on integers and asked to find the second lowest integer
 
  */
-public class secondLowest {
+public class SecondLowest {
 
     public static void main(String[] args) {
         //for getSecondLowest
