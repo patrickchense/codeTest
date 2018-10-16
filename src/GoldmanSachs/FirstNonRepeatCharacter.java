@@ -5,7 +5,9 @@ https://www.geeksforgeeks.org/given-a-string-find-its-first-non-repeating-charac
 Given a string, find the first non-repeating character in it. For example, if the input string is “GeeksforGeeks”,
 then output should be ‘f’ and if input string is “GeeksQuiz”, then output should be ‘G’.
 
-solution: using array count numbers
+solution:
+1. using array count numbers
+2. using hashmap
 
  */
 public class FirstNonRepeatCharacter {
