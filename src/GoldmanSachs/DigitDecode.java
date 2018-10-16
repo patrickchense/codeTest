@@ -17,6 +17,9 @@ solution:
 1) If the last digit is non-zero, recur for remaining (n-1) digits and add the result to total count.
 2) If the last two digits form a valid character (or smaller than 27), recur for remaining (n-2) digits and add the result to total count.
 
+@dp
+@recursion
+
  */
 public class DigitDecode {
 
