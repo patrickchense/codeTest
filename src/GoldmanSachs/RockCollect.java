@@ -10,4 +10,5 @@ So there is miner at point A and he heard about some rare rock in point B so he 
 
  */
 public class RockCollect {
+    
 }
