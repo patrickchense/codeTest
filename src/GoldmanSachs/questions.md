@@ -55,3 +55,5 @@
  }
  29. Can you implement atoi function, input string “42”, return int 42”.
  30. Interviewer copied a function code and unit test. Then asked “What do you think about this unit test?”, “Can you fix this unit test?” (After fixing the unit test, found that the function is wrong – it was to implement a parseInt (pronounced as par-sient) function.)
+ 31. replace repeating characters from the beginning
+    for example:  ABCABCD = ABC*D

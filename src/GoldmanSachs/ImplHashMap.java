@@ -85,6 +85,9 @@ public class ImplHashMap {
             return Integer.hashCode(key) % buckets.length;
         }
 
+        /*
+        very smart to return prev not current
+         */
         ListNode find(Bucket bucket, int key) {
             ListNode node = bucket.head, prev = null;
             while (node != null && node.key != key) {
