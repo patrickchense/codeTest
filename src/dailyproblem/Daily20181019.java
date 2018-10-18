@@ -22,7 +22,12 @@ of being chosen after the iteration. This is the case since the chance of having
 being chosen already but not getting swapped with the ith element is
 1 / i * (1 - (1 / (i + 1))) which is 1 / i * i / (i + 1) or 1 / (i + 1)
 
+How does this work
+We need to prove that every element is picked with 1/n probability where n is the number of items seen so far. For every new stream item x, we pick a random number from 0 to ‘count -1’, if the picked number is ‘count-1’, we replace the previous result with x.
 
+To simplify proof, let us first consider the last element, the last element replaces the previously stored result with 1/n probability. So probability of getting last element as result is 1/n.
+Let us now talk about second last element. When second last element processed first time, the probability that it replaced the previous result is 1/(n-1). The probability that previous result stays when nth item is considered is (n-1)/n.
+So probability that the second last element is picked in last iteration is [1/(n-1)] * [(n-1)/n] which is 1/n.
  */
 public class Daily20181019 {
 
