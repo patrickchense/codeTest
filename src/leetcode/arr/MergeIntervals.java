@@ -17,7 +17,7 @@ others:
 ?
 
 related
-TODO
+@class InsertInterval
 https://leetcode.com/problems/insert-interval/
 TODO
 https://leetcode.com/problems/range-module/description/
