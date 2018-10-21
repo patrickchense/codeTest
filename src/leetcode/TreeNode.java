@@ -20,7 +20,7 @@ public class TreeNode {
        return sb.toString();
     }
 
-    void printPostorder(TreeNode node, StringBuilder sb) {
+    public void printPostorder(TreeNode node, StringBuilder sb) {
         if (node == null) return;
         // first recur on left subtree
         printPostorder(node.left, sb);
@@ -32,21 +32,21 @@ public class TreeNode {
         sb.append(node.val).append(",");
     }
 
-    void printPreorder(TreeNode node, StringBuilder sb) {
+    public void printPreorder(TreeNode node, StringBuilder sb) {
         if (node == null) return;
         sb.append(node.val).append(",");
         printPostorder(node.left, sb);
         printPostorder(node.right, sb);
     }
 
-    void printInOrder(TreeNode node, StringBuilder sb) {
+    public void printInOrder(TreeNode node, StringBuilder sb) {
         if (node == null) return;
         printPostorder(node.left, sb);
         sb.append(node.val).append(",");
         printPostorder(node.right, sb);
     }
 
-    void printBFSOrder(TreeNode node, StringBuilder sb) {
+    public void printBFSOrder(TreeNode node, StringBuilder sb) {
         int height = height(node);
         for (int i = 1; i <= height; i++)
             printLevelOrder(node, i, sb);
@@ -59,7 +59,7 @@ public class TreeNode {
         return lh > rh ? lh + 1 : rh + 1;
     }
 
-    void printLevelOrder(TreeNode node, int level, StringBuilder sb) {
+    public void printLevelOrder(TreeNode node, int level, StringBuilder sb) {
         if (node == null) {
             sb.append("null").append(",");
             return;
