@@ -1,5 +1,8 @@
 package dailyproblem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 In a directed graph, each node is assigned an uppercase letter. We define a path's value as the number of most frequently-occurring letter along that path. For example, if a path in the graph goes through "ABACA", the value of the path is 3,
  since there are 3 occurrences of 'A' on the path.
@@ -30,5 +33,34 @@ Should return null, since we have an infinite loop.
  */
 public class Daily20181218 {
 
+    /*
+        null:
+            include self cycle
+            include cycle
+        find all the path
+        build nodestr
+     */
+    public static Integer frequenceGraph(String nodes, List<List<Integer>> paths) {
+        List<List<Integer>> buildPaths = new ArrayList<>();
+        for (int i = 0; i < paths.size(); i++) {
+            List<Integer> path = paths.get(i);
+            List<Integer> buildPath = new ArrayList<>();
+            if (path.get(0).intValue() == path.get(1)) {
+                buildPath.add(path.get(0));
+            }
+            else {
+               for (int j = 0; j < paths.size(); j++) {
+                   if (i == j) continue;
 
+               }
+            }
+            buildPaths.add(buildPath);
+        }
+        // find the result
+        return null;
+    }
+
+    public static void main(String[] args) {
+
+    }
 }
