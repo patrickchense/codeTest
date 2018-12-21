@@ -1,5 +1,8 @@
 package dailyproblem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 The power set of a set is the set of all its subsets. Write a function that, given a set, generates its power set.
 
@@ -12,5 +15,15 @@ You may also use a list or array to represent a set.
  */
 public class Daily20181110 {
 
+
+    public static void main(String[] args) {
+
+    }
+
+    public List<List<String>> powerSet(List<String> strs) {
+        List<List<String>> powerSets = new ArrayList<>();
+
+        return powerSets;
+    }
 
 }

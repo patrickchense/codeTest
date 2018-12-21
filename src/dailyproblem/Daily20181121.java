@@ -23,4 +23,6 @@ d  e f  g
 
  */
 public class Daily20181121 {
+
+
 }
