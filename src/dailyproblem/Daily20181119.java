@@ -6,6 +6,19 @@ Given a string, find the longest palindromic contiguous substring. If there are 
 For example, the longest palindromic substring of "aabcdcb" is "bcdcb". The longest palindromic substring of "bananas" is "anana".
 
 @amazon
+
+
  */
 public class Daily20181119 {
+
+    public static void main(String[] args) {
+
+    }
+
+    public static String longestPalindromicString(String str) {
+        int[] counts = new int[str.length()];
+        counts[0] = 0;
+
+        return "";
+    }
 }
