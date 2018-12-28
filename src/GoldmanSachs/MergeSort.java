@@ -78,7 +78,7 @@ public class MergeSort {
         }
     }
 
-    // Main function that sorts arr[l..r] using
+    // indeedjp.Main function that sorts arr[l..r] using
     // merge()
     void sort(int arr[], int l, int r) {
         if (l < r) {
