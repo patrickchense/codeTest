@@ -17,6 +17,8 @@ node = Node('root', Node('left', Node('left.left')), Node('right'))
 assert deserialize(serialize(node)).left.left.val == 'left.left'
  */
 
+import util.TreeNode;
+
 /*
 二叉树遍历， preorder, inorder, postorder, and revert binary tree back.
 

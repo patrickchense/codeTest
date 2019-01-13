@@ -1,6 +1,6 @@
 package leetcode.tree;
 
-import leetcode.TreeNode;
+import util.TreeNode;
 
 /*
 @BinaryTree

@@ -1,6 +1,6 @@
 package leetcode.locked;
 
-import leetcode.TreeNode;
+import util.TreeNode;
 
 import java.util.Stack;
 

@@ -1,5 +1,7 @@
 package GoldmanSachs;
 
+import util.Node;
+
 /*
 https://www.geeksforgeeks.org/given-only-a-pointer-to-a-node-to-be-deleted-in-a-singly-linked-list-how-do-you-delete-it/
 
@@ -24,9 +26,9 @@ Fast solution is to copy the data from the next node to the node to be deleted a
  */
 public class DeleteNode {
 
-    public  void deleteNode(DetectAndRemoveLoop.Node Node_ptr)
+    public  void deleteNode(Node Node_ptr)
     {
-        DetectAndRemoveLoop.Node temp = Node_ptr.next;
+        Node temp = Node_ptr.next;
         Node_ptr.data = temp.data;
         Node_ptr.next = temp.next;
         temp = null;
