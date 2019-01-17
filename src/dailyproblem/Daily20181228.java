@@ -1,16 +1,9 @@
 package dailyproblem;
 
 /*
-Implement locking in a binary tree. A binary tree node can be locked or unlocked only if all of its descendants or ancestors are not locked.
+Given three 32-bit integers x, y, and b, return x if b is 1 and y if b is 0, using only mathematical or bit operations. You can assume b can only be 1 or 0.
 
-Design a binary tree node class with the following methods:
-
-is_locked, which returns whether the node is locked
-lock, which attempts to lock the node. If it cannot be locked, then it should return false. Otherwise, it should lock it and return true.
-unlock, which unlocks the node. If it cannot be unlocked, then it should return false. Otherwise, it should unlock it and return true.
-You may augment the node to add parent pointers or any other property you would like. You may assume the class is used in a single-threaded program, so there is no need for actual locks or mutexes. Each method should run in O(h), where h is the height of the tree.
-
-@google
+@facebook
 
  */
 public class Daily20181228 {

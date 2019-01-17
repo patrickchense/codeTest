@@ -1,14 +1,28 @@
 package dailyproblem;
 
 /*
-Given a singly linked list and an integer k, remove the kth last element from the list. k is guaranteed to be smaller than the length of the list.
+A rule looks like this:
 
-The list is very long, so making more than one pass is prohibitively expensive.
+A NE B
 
-Do this in constant space and in one pass.
+This means this means point A is located northeast of point B.
 
-@google
+A SW C
 
+means that point A is southwest of C.
+
+Given a list of rules, check if the sum of the rules validate. For example:
+
+A N B
+B NE C
+C N A
+does not validate, since A cannot be both north and south of C.
+
+A NW B
+A N B
+is considered valid.
+
+@Uber
  */
 public class Daily20181230 {
 }

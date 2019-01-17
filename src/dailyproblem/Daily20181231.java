@@ -1,38 +1,11 @@
 package dailyproblem;
 
-import java.util.Stack;
-
 /*
-Given a string of round, curly, and square open and closing brackets, return whether the brackets are balanced (well-formed).
+Implement division of two positive integers without using the division, multiplication, or modulus operators. Return the quotient as an integer, ignoring the remainder.
 
-For example, given the string "([])[]({})", you should return true.
+@ContextLogic
 
-Given the string "([)]" or "((()", you should return false.
 
-@facebook
-@solved
  */
 public class Daily20181231 {
-
-    public static void main(String[] args) {
-        System.out.println(isMatchBrackets("([])[]({})"));
-        System.out.println(isMatchBrackets("([)]"));
-        System.out.println(isMatchBrackets("((()"));
-    }
-
-    public static boolean isMatchBrackets(String s) {
-        Stack<Character> brs = new Stack<>();
-        for (char c : s.toCharArray()) {
-            if (c == '[' || c == '{' || c == '(') brs.push(c);
-            else {
-                char before = brs.peek();
-                if (c == ']' && before == '[') brs.pop();
-                else if (c == '}' && before == '{') brs.pop();
-                else if (c == ')' && before == '(') brs.pop();
-                else return false;
-            }
-        }
-        return brs.empty();
-    }
 }
-
