@@ -83,6 +83,7 @@ public class Daily20181221 {
 
     }
 
+    // recursive sort merge
     public static Node sortedMerge(Node a, Node b)
     {
         Node result = null;
