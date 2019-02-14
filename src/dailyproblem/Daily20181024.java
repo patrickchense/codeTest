@@ -1,5 +1,7 @@
 package dailyproblem;
 
+import util.Node;
+
 /*
 Given two singly linked lists that intersect at some point, find the intersecting node. The lists are non-cyclical.
 

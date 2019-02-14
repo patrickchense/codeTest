@@ -1,6 +1,6 @@
 package GoldmanSachs;
 
-import leetcode.TreeNode;
+import util.TreeNode;
 
 /*
 https://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/

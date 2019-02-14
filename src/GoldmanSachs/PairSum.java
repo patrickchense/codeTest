@@ -1,6 +1,6 @@
 package GoldmanSachs;
 
-import leetcode.TreeNode;
+import util.TreeNode;
 
 import java.util.*;
 

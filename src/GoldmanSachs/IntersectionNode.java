@@ -1,5 +1,7 @@
 package GoldmanSachs;
 
+import util.Node;
+
 /*
 https://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists/
 
@@ -21,17 +23,6 @@ totally 7 solutions !!!!!!!
 public class IntersectionNode {
 
     static Node head1, head2;
-
-    static class Node {
-
-        int data;
-        Node next;
-
-        Node(int d) {
-            data = d;
-            next = null;
-        }
-    }
 
     /*function to get the intersection point of two linked
     lists head1 and head2 */

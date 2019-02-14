@@ -1,9 +1,9 @@
-package dailyproblem;
+package util;
 
 public class Node {
 
-    int data;
-    Node next;
+    public int data;
+    public Node next;
 
     public Node(int val) {
         this.data = val;

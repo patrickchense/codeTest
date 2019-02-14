@@ -1,5 +1,7 @@
 package GoldmanSachs;
 
+import util.Node;
+
 import java.util.LinkedList;
 
 /*
@@ -13,17 +15,6 @@ Below diagram shows a linked list with a loop. detectAndRemoveLoop() must change
 public class DetectAndRemoveLoop {
 
     static Node head;
-
-    static class Node {
-
-        int data;
-        Node next;
-
-        Node(int d) {
-            data = d;
-            next = null;
-        }
-    }
 
     void printList(Node node) {
         while (node != null) {
