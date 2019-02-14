@@ -2,6 +2,7 @@ package util;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TreeNode {
@@ -47,6 +48,13 @@ public class TreeNode {
         printPostorder(node.left, sb);
         sb.append(node.val).append(",");
         printPostorder(node.right, sb);
+    }
+
+    public void inOrder(TreeNode node, List<Integer> inOrders) {
+        if (node == null) return;
+        inOrder(node.left, inOrders);
+        inOrders.add(node.val);
+        inOrder(node.right, inOrders);
     }
 
     public void printBFSOrder(TreeNode node, StringBuilder sb) {
