@@ -25,4 +25,5 @@ is considered valid.
 @Uber
  */
 public class Daily20181230 {
+
 }

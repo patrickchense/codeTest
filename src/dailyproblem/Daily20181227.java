@@ -16,4 +16,10 @@ For example, this matrix has 4 islands.
 
  */
 public class Daily20181227 {
+
+    public static void main(String[] args) {
+
+    }
+
+
 }

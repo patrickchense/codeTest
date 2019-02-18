@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 import static util.ArrayUtil.printList;
+import static util.ArrayUtil.printNode;
 
 /*
 Given k sorted singly linked lists, write a function to merge all the lists into one sorted singly linked list.
@@ -42,7 +43,7 @@ public class Daily20181221 {
         // Merge all lists
         Node head = mergeKLists(arr, k - 1);
 
-        printList(head);
+        printNode(head);
     }
 
     /*
