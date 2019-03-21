@@ -64,7 +64,15 @@ public class D20190214 {
         node211.right = node2112;
 
         System.out.println(findNextInOrder(node, 10));
+        int result = -1;
+        findNextInOrderBetter(node, 10, -1,false, result);
+        System.out.println(result);
         System.out.println(findNextInOrder(node, 21));
+        result = -1;
+        findNextInOrderBetter(node, 21, -1,false, result);
+        System.out.println(result);
+
+
     }
 
     public static int findNextInOrder(TreeNode root, int target) {
@@ -76,5 +84,9 @@ public class D20190214 {
             return inOrderVals.get(index + 1);
         }
         return -1;
+    }
+
+    public static void findNextInOrderBetter(TreeNode root, int target, int last, Boolean nextOne, Integer result) {
+
     }
 }

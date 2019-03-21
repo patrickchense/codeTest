@@ -1,5 +1,6 @@
 package util;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class ArrayUtil {
@@ -21,6 +22,12 @@ public class ArrayUtil {
         while (node != null) {
             System.out.print(node.data + " ");
             node = node.next;
+        }
+    }
+
+    public static void printMatrix(Object[][] matrix) {
+        for (Object[] m : matrix) {
+            System.out.println(Arrays.toString(m));
         }
     }
 }

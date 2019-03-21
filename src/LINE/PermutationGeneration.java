@@ -128,6 +128,7 @@ S will consist only of letters or digits.
 
     public static List<String> letterPermutation(String s) {
 
+        return null;
     }
 
 
