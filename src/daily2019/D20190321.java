@@ -20,6 +20,7 @@ import util.ArrayUtil;
  @Facebook
  @matrixrix
 
+ @solved
  Clock rotate
  anti
  https://www.geeksforgeeks.org/inplace-rotate-square-matrixrix-by-90-degrees/

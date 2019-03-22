@@ -8,7 +8,6 @@ import java.util.Arrays;
  *
  * @Google
  * @solved
- * @review
  *
  * https://www.geeksforgeeks.org/find-duplicates-in-on-time-and-constant-extra-space/ O(1) space
  */
@@ -42,6 +41,8 @@ public class D20190317 {
      make it negative by   A[abs(A[i])]=-A[abs(A[i])];
   else  // i.e., A[abs(A[i])] is negative
      this   element (ith element of list) is a repetition
+
+     就是通过index来把遇到的都弄反，然后下次再碰到反的，就是重复的
 }
      */
 
