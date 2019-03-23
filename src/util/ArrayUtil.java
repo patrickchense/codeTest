@@ -13,7 +13,11 @@ public class ArrayUtil {
 
     public static void printList(List<? extends Object> l) {
         for (Object b : l) {
-            System.out.print(b.toString() + " ");
+            if (b instanceof Integer[]) {
+               System.out.println(Arrays.toString((Integer[]) b));
+            } else {
+                System.out.print(b.toString() + " ");
+            }
         }
         System.out.println();
     }
