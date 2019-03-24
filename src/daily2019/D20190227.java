@@ -28,7 +28,7 @@ We do not remove the tree at the root or its left child because it still has a 1
 @binarytree
 @tree
 @recursive
-
+@solved
  */
 public class D20190227 {
     public static void main(String[] args) {

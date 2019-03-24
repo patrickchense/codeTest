@@ -10,7 +10,7 @@ If two distances to larger numbers are the equal, then return any one of them. I
 Follow-up: If you can preprocess the array, can you do this in constant time?
 
 @Google
-
+@solved
  */
 public class D20190225 {
 
