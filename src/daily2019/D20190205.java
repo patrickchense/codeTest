@@ -7,6 +7,22 @@ Write a function that, given n, returns the number of rounds you'd expect to pla
 
 @Microsoft
 
+n /2 ...until n == 1?
+好像不是这么算的？？？
+
  */
 public class D20190205 {
+
+    public static void main(String[] args) {
+        System.out.println("play times:" + playtimes(100));
+    }
+
+    private static int playtimes(int n) {
+        int c = 0;
+        while (n > 1) {
+            n /= 2;
+            c++;
+        }
+        return c;
+    }
 }

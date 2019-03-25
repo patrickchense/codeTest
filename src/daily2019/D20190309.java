@@ -59,7 +59,10 @@ public class D20190309 {
                 // check the criteria
                 if (j * j <= number) {
                     // select the number, add 1 to the solution of number-j*j
-                    NUM[j] = MN[number - j * j] + 1;
+                    NUM[j] = MN[number - j * j] + 1;//把所有平方<当前number的差都记录下来+1(比如number==4时，j=1,j=2,时， MN[3] = 1, MN[0] = 1, number =5, MN[4] = 1, MN[1] =1
+                    // number ==6, MN[5] = 1, MN[2] =1, 7, MN[6] = 1, MN[3] = 2, 8, MN[7] =1, MN[4] = 2, 9, MN[8] = 1, MN[5] = 2, MN[0] = 2 ..
+                } else {
+                    break;
                 }
             }
 
