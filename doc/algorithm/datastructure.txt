@@ -1,0 +1,10 @@
+算法题有一些是实现数据结构
+1. iterator
+
+2. stack
+
+3. stack 实现双向链表
+
+4. LRU
+
+5. iterator 实现 stack的peek方法  D20190220.java
