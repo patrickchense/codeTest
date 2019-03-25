@@ -17,13 +17,6 @@ public class TreeNode {
         val = x;
     }
 
-    @Override
-    public String toString() {
-       StringBuilder sb = new StringBuilder();
-       printBFSOrder(this, sb);
-       return sb.toString();
-    }
-
     public void printPostorder(TreeNode node, StringBuilder sb) {
         if (node == null) return;
         // first recur on left subtree
@@ -34,6 +27,13 @@ public class TreeNode {
 
         // now deal with the node
         sb.append(node.val).append(",");
+    }
+
+    @Override
+    public String toString() {
+        return "TreeNode{" +
+                "val=" + val +
+                '}';
     }
 
     public void printPreorder(TreeNode node, StringBuilder sb) {
