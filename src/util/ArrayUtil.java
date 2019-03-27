@@ -1,5 +1,6 @@
 package util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,6 +16,12 @@ public class ArrayUtil {
         for (Object b : l) {
             if (b instanceof Integer[]) {
                System.out.println(Arrays.toString((Integer[]) b));
+            } else if (b instanceof List) {
+                System.out.print("[");
+                for (Object c : (List)b) {
+                    System.out.print(c.toString() + ",");
+                }
+                System.out.println("]");
             } else {
                 System.out.print(b.toString() + " ");
             }
