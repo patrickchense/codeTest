@@ -84,6 +84,15 @@ public class TreeNode {
         }
     }
 
+    public static void printLevelOrderIgnoreNull(TreeNode node, StringBuilder sb) {
+        if (node == null) {
+            return;
+        }
+        sb.append(node.val).append(",");
+        printLevelOrderIgnoreNull(node.left, sb);
+        printLevelOrderIgnoreNull(node.right, sb);
+    }
+
     /*
     LeetCode 889
     https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/description/
