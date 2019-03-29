@@ -21,7 +21,23 @@ Output: 2
 It takes 1 step to move from (0, 0) to (1, 1). It takes one more step to move from (1, 1) to (1, 2).
 
 @google
+@solved
+@matrix
 
+关键在于理解什么是最小的step从a到b
  */
 public class D20190112 {
+
+    public static void main(String[] args) {
+        System.out.println(countStepsInMatrix(new int[][]{{0,0}, {1,1}, {1,2}}));
+        System.out.println(countStepsInMatrix(new int[][]{{0,0}, {1,1}, {4, 5}}));
+    }
+
+    public static int countStepsInMatrix(int[][] matrix) {
+        int steps = 0;
+        for (int i = 1; i < matrix.length; i++) {
+            steps += Math.max(Math.abs(matrix[i][0] - matrix[i-1][0]), Math.abs(matrix[i][1] - matrix[i-1][1]));
+        }
+        return steps;
+    }
 }
