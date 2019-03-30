@@ -1,7 +1,7 @@
 package daily2019;
 
 import util.ArrayUtil;
-import util.BSTNode;
+import util.BTNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,11 +32,11 @@ it should return [[1, 2], [1, 3, 4], [1, 3, 5]].
 public class D20190122 {
 
     public static void main(String[] args) {
-        BSTNode n1 = new BSTNode(1);
-        BSTNode n2 = new BSTNode(2);
-        BSTNode n3 = new BSTNode(3);
-        BSTNode n4 = new BSTNode(4);
-        BSTNode n5 = new BSTNode(5);
+        BTNode n1 = new BTNode(1);
+        BTNode n2 = new BTNode(2);
+        BTNode n3 = new BTNode(3);
+        BTNode n4 = new BTNode(4);
+        BTNode n5 = new BTNode(5);
         n3.left = n4;
         n3.right = n5;
         n1.left = n2;
@@ -48,7 +48,7 @@ public class D20190122 {
     }
 
     // 递归的关键还是在于找到结束条件
-    public static void findAllPath(BSTNode root, List<List<Integer>> paths, List<Integer> cur)  {
+    public static void findAllPath(BTNode root, List<List<Integer>> paths, List<Integer> cur)  {
         cur.add(root.val);
         if (root.left == null && root.right == null) {
             List<Integer> p = new ArrayList<>(cur);

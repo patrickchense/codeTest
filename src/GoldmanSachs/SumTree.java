@@ -1,16 +1,16 @@
 package GoldmanSachs;
 
-import util.BSTNode;
+import util.BTNode;
 
 /*
 
  */
 public class SumTree {
-    BSTNode root;
+    BTNode root;
 
     /* A utility function to get the sum of values in tree with root
      as root */
-    static int sum(BSTNode node) {
+    static int sum(BTNode node) {
         if (node == null)
             return 0;
         return sum(node.left) + node.val + sum(node.right);
@@ -18,7 +18,7 @@ public class SumTree {
 
     /* returns 1 if sum property holds for the given
        node and both of its children */
-    static int isSumTree(BSTNode node) {
+    static int isSumTree(BTNode node) {
         int ls, rs;
 
         /* If node is NULL or it's a leaf node then
@@ -41,12 +41,12 @@ public class SumTree {
 
     /* Driver program to test above functions */
     public static void main(String args[]) {
-        BSTNode head = new BSTNode(26);
-        head.left = new BSTNode(10);
-        head.right = new BSTNode(3);
-        head.left.left = new BSTNode(4);
-        head.left.right = new BSTNode(6);
-        head.right.right = new BSTNode(3);
+        BTNode head = new BTNode(26);
+        head.left = new BTNode(10);
+        head.right = new BTNode(3);
+        head.left.left = new BTNode(4);
+        head.left.right = new BTNode(6);
+        head.right.right = new BTNode(3);
 
         if (isSumTree(head) != 0)
             System.out.println("The given tree is a sum tree");

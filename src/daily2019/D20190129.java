@@ -1,6 +1,6 @@
 package daily2019;
 
-import util.BSTNode;
+import util.BTNode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,15 +46,15 @@ https://www.geeksforgeeks.org/number-of-leaf-nodes-in-the-subtree-of-every-node-
 public class D20190129 {
 
     public static void main(String[] args) {
-        BSTNode n1 = new BSTNode(8);
-        BSTNode n2 = new BSTNode(9);
-        BSTNode n3 = new BSTNode(4);
-        BSTNode n4 = new BSTNode(5);
-        BSTNode n5 = new BSTNode(6);
-        BSTNode n6 = new BSTNode(7);
-        BSTNode n7 = new BSTNode(2);
-        BSTNode n8 = new BSTNode(3);
-        BSTNode n9 = new BSTNode(1);
+        BTNode n1 = new BTNode(8);
+        BTNode n2 = new BTNode(9);
+        BTNode n3 = new BTNode(4);
+        BTNode n4 = new BTNode(5);
+        BTNode n5 = new BTNode(6);
+        BTNode n6 = new BTNode(7);
+        BTNode n7 = new BTNode(2);
+        BTNode n8 = new BTNode(3);
+        BTNode n9 = new BTNode(1);
 
         n4.left = n1;
         n5.right = n2;
@@ -78,7 +78,7 @@ public class D20190129 {
         System.out.println(i);
     }
 
-    public static void levelSum(BSTNode root, Map<Integer, Integer> res, int level) {
+    public static void levelSum(BTNode root, Map<Integer, Integer> res, int level) {
         if (root == null) return;
         if (root.left == null && root.right == null) {
             if (res.containsKey(level)) {

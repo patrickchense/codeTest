@@ -1,6 +1,6 @@
 package dailyproblem;
 
-import util.BSTNode;
+import util.BTNode;
 
 /*
 Given the root of a binary tree, return a deepest node. For example, in the following tree, return d.
@@ -20,7 +20,7 @@ public class Daily20181223 {
 
     static int max_height = 0;
 
-    public static BSTNode deepest(BSTNode root ) {
+    public static BTNode deepest(BTNode root ) {
 
         return null;
     }

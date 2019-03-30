@@ -1,6 +1,6 @@
 package daily2019;
 
-import util.BSTNode;
+import util.BTNode;
 
 import java.util.*;
 
@@ -36,11 +36,11 @@ public class D20190206 {
 
 
     public static void main(String[] args) {
-        BSTNode n1 = new BSTNode(11);
-        BSTNode n2 = new BSTNode(15);
-        BSTNode n3 = new BSTNode(15);
-        BSTNode n4 = new BSTNode(5);
-        BSTNode n5 = new BSTNode(10);
+        BTNode n1 = new BTNode(11);
+        BTNode n2 = new BTNode(15);
+        BTNode n3 = new BTNode(15);
+        BTNode n4 = new BTNode(5);
+        BTNode n5 = new BTNode(10);
         n3.left = n1;
         n3.right = n2;
         n5.left = n4;
@@ -54,10 +54,10 @@ public class D20190206 {
     }
 
 
-    private static Map<Integer, BSTNode> nodes = new HashMap<>();
-    private static BSTNode[] result = new BSTNode[2];
+    private static Map<Integer, BTNode> nodes = new HashMap<>();
+    private static BTNode[] result = new BTNode[2];
     //binary tree 找2个点sum=target，最简单map保存，然后处理， O(n) space, O(n) time
-    public static void findTwoNodeSumToTarget(int target, BSTNode head) {
+    public static void findTwoNodeSumToTarget(int target, BTNode head) {
         if (head == null) return;
         if (nodes.containsKey(target - head.val)) {
             result[0] = head;
@@ -87,7 +87,7 @@ If the sum is same as target sum, we return true. If the sum is more than target
 If any of the traversals is finished without finding a pair, we return false. Following is C++ implementation of this approach.
      */
 
-    public static int[] findByTwoInOrderTraverse(int target, BSTNode head) {
+    public static int[] findByTwoInOrderTraverse(int target, BTNode head) {
         List<Integer> vals = new ArrayList<>();
         head.inOrder(head, vals);
         int start = 0;

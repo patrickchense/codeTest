@@ -1,6 +1,6 @@
 package GoldmanSachs;
 
-import util.BSTNode;
+import util.BTNode;
 
 import java.util.*;
 
@@ -148,7 +148,7 @@ public class PairSum {
     }
 
     // sumtwoBSTexists find exists only
-    public boolean sumtwoBSTexists(BSTNode root, int k) {
+    public boolean sumtwoBSTexists(BTNode root, int k) {
         if (root == null) return false;
 
         List<Integer> list = new ArrayList<>();
@@ -169,7 +169,7 @@ public class PairSum {
         return false;
     }
 
-    private void inOrder(BSTNode root, List<Integer> list) {
+    private void inOrder(BTNode root, List<Integer> list) {
         if (root == null) return;
 
         inOrder(root.left, list);

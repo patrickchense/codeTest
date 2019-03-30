@@ -5,19 +5,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BSTNode {
+public class BTNode {
     public int val;
-    public BSTNode left;
-    public BSTNode right;
+    public BTNode left;
+    public BTNode right;
 
-    public BSTNode() {
+    public BTNode() {
     }
 
-    public BSTNode(int x) {
+    public BTNode(int x) {
         val = x;
     }
 
-    public void printPostorder(BSTNode node, StringBuilder sb) {
+    public void printPostorder(BTNode node, StringBuilder sb) {
         if (node == null) return;
         // first recur on left subtree
         printPostorder(node.left, sb);
@@ -31,46 +31,46 @@ public class BSTNode {
 
     @Override
     public String toString() {
-        return "BSTNode{" +
+        return "BTNode{" +
                 "val=" + val +
                 '}';
     }
 
-    public void printPreorder(BSTNode node, StringBuilder sb) {
+    public void printPreorder(BTNode node, StringBuilder sb) {
         if (node == null) return;
         sb.append(node.val).append(",");
         printPostorder(node.left, sb);
         printPostorder(node.right, sb);
     }
 
-    public void printInOrder(BSTNode node, StringBuilder sb) {
+    public void printInOrder(BTNode node, StringBuilder sb) {
         if (node == null) return;
         printPostorder(node.left, sb);
         sb.append(node.val).append(",");
         printPostorder(node.right, sb);
     }
 
-    public void inOrder(BSTNode node, List<Integer> inOrders) {
+    public void inOrder(BTNode node, List<Integer> inOrders) {
         if (node == null) return;
         inOrder(node.left, inOrders);
         inOrders.add(node.val);
         inOrder(node.right, inOrders);
     }
 
-    public void printBFSOrder(BSTNode node, StringBuilder sb) {
+    public void printBFSOrder(BTNode node, StringBuilder sb) {
         int height = height(node);
         for (int i = 1; i <= height; i++)
             printLevelOrder(node, i, sb);
     }
 
-    private int height(BSTNode node) {
+    private int height(BTNode node) {
         if (node == null) return 0;
         int lh = height(node.left);
         int rh = height(node.right);
         return lh > rh ? lh + 1 : rh + 1;
     }
 
-    public void printLevelOrder(BSTNode node, int level, StringBuilder sb) {
+    public void printLevelOrder(BTNode node, int level, StringBuilder sb) {
         if (node == null) {
             sb.append("null").append(",");
             return;
@@ -84,7 +84,7 @@ public class BSTNode {
         }
     }
 
-    public static void printLevelOrderIgnoreNull(BSTNode node, StringBuilder sb) {
+    public static void printLevelOrderIgnoreNull(BTNode node, StringBuilder sb) {
         if (node == null) {
             return;
         }
@@ -113,22 +113,22 @@ step 8: create right child value, move pre pointer.
 step 9: recursive to resolve righ child, get right child's children length.
 step 10: return left child node length + right child node length
      */
-    BSTNode buildTreeFromArray(int[] preOrder, int[] postOrder) {
+    BTNode buildTreeFromArray(int[] preOrder, int[] postOrder) {
         //first of preOrder is the root | last of the post Order is the root
-        BSTNode root = new BSTNode(preOrder[0]);
+        BTNode root = new BTNode(preOrder[0]);
         addChildren(root, preOrder, 1, postOrder, 0);
         return root;
     }
 
-    private int addChildren(BSTNode root, int[] preOrder, int i, int[] postOrder, int j) {
+    private int addChildren(BTNode root, int[] preOrder, int i, int[] postOrder, int j) {
         if (postOrder[j] == root.val) return 0;
-        BSTNode left = new BSTNode(preOrder[i]);
+        BTNode left = new BTNode(preOrder[i]);
         root.left = left;
         int len = 1 + addChildren(left, preOrder, i+1, postOrder, j);
         i += len;
         j += len;
         if (postOrder[j] != root.val) {
-            BSTNode right = new BSTNode(preOrder[i]);
+            BTNode right = new BTNode(preOrder[i]);
             root.right = right;
             len += 1 + addChildren(right, preOrder, i+1, postOrder, j);
         }
@@ -136,13 +136,13 @@ step 10: return left child node length + right child node length
     }
 
     // return length of child
-    int addChild(BSTNode root, int[] pre, int p1, int[] post, int p2) {
+    int addChild(BTNode root, int[] pre, int p1, int[] post, int p2) {
         // no more child
         if (post[p2]==root.val) {
             return 0;
         }
         // child is pre[s1]
-        BSTNode child=new BSTNode(pre[p1]);
+        BTNode child=new BTNode(pre[p1]);
 
         /*
         if (root.left==null) {
@@ -163,7 +163,7 @@ step 10: return left child node length + right child node length
         return 1+addChildren(child,pre,p1+1,post,p2);
     }
     // return length of children
-    int addChildren2(BSTNode root, int[] pre, int p1, int[] post, int p2) {
+    int addChildren2(BTNode root, int[] pre, int p1, int[] post, int p2) {
         int len=0;
         for (int i=0;i<2;i++) {
             // try twice for left and right child
@@ -176,7 +176,7 @@ step 10: return left child node length + right child node length
     use O(n^2) time, O(n) space
     use Map will be easier to find the end of the left
      */
-     BSTNode constructFromPrePost(int[] pre, int[] post) {
+     BTNode constructFromPrePost(int[] pre, int[] post) {
         if (pre == null || pre.length == 0 || post == null || post.length == 0 || pre.length != post.length) {
             return null;
         }
@@ -190,12 +190,12 @@ step 10: return left child node length + right child node length
         return buildTreeHelper(pre, 0, pre.length - 1, post, 0, postMap);
     }
 
-     BSTNode buildTreeHelper(int[] pre, int preStart, int preEnd, int[] post, int postStart, Map<Integer, Integer> postMap) {
+     BTNode buildTreeHelper(int[] pre, int preStart, int preEnd, int[] post, int postStart, Map<Integer, Integer> postMap) {
         if (preStart > preEnd) {
             return null;
         }
 
-        BSTNode node = new BSTNode(pre[preStart]);
+        BTNode node = new BTNode(pre[preStart]);
 
         if (preStart == preEnd) {
             return node;

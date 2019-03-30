@@ -1,6 +1,6 @@
 package GoldmanSachs;
 
-import util.BSTNode;
+import util.BTNode;
 
 /*
 https://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/
@@ -15,7 +15,7 @@ The above height-balancing scheme is used in AVL trees. The diagram below shows 
  */
 public class BinaryTreeBalance {
 
-    boolean isBalanced(BSTNode node) {
+    boolean isBalanced(BTNode node) {
         int lh; /* for height of left subtree */
 
         int rh; /* for height of right subtree */
@@ -41,7 +41,7 @@ public class BinaryTreeBalance {
     /*  The function Compute the "height" of a tree. Height is the
         number of nodes along the longest path from the root node
         down to the farthest leaf node.*/
-    int height(BSTNode node) {
+    int height(BTNode node) {
         /* base case tree is empty */
         if (node == null)
             return 0;
