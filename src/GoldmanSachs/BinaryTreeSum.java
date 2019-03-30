@@ -1,6 +1,6 @@
 package GoldmanSachs;
 
-import util.TreeNode;
+import util.BSTNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ solution
 
  */
 public class BinaryTreeSum {
-    public static int sumBinaryTree(TreeNode node) {
+    public static int sumBinaryTree(BSTNode node) {
         if (node == null) return 0;
         if (node.left == null && node.right == null) return node.val;
 
@@ -42,7 +42,7 @@ public class BinaryTreeSum {
         return sum;
     }
 
-    private static void help(TreeNode node, String s, List<String> ss) {
+    private static void help(BSTNode node, String s, List<String> ss) {
         if (node == null) {
             ss.add(s);
             return;
@@ -58,12 +58,12 @@ public class BinaryTreeSum {
     }
 
     public static void main(String[] args) {
-        TreeNode node = new TreeNode(1);
-        node.left = new TreeNode(2);
-        node.right = new TreeNode(3);
-        node.left.left = new TreeNode(4);
-        node.left.right = new TreeNode(6);
-        node.right.left = new TreeNode(7);
+        BSTNode node = new BSTNode(1);
+        node.left = new BSTNode(2);
+        node.right = new BSTNode(3);
+        node.left.left = new BSTNode(4);
+        node.left.right = new BSTNode(6);
+        node.right.left = new BSTNode(7);
 
         System.out.println(sumBinaryTree(node));
     }

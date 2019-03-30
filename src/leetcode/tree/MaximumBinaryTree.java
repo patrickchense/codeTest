@@ -1,6 +1,6 @@
 package leetcode.tree;
 
-import util.TreeNode;
+import util.BSTNode;
 
 /*
 @BinaryTree
@@ -37,14 +37,14 @@ public class MaximumBinaryTree {
         System.out.println(constructMaximumBinaryTree(nums));
     }
 
-    public static TreeNode constructMaximumBinaryTree(int[] nums) {
+    public static BSTNode constructMaximumBinaryTree(int[] nums) {
         return buildTree(nums, 0, nums.length);
     }
 
-    public static TreeNode buildTree(int[] nums, int i, int j) {
+    public static BSTNode buildTree(int[] nums, int i, int j) {
         if (i == j) return null;
         int max_i = findMax(nums, i, j);
-        TreeNode node = new TreeNode(nums[max_i]);
+        BSTNode node = new BSTNode(nums[max_i]);
         node.left = buildTree(nums, i, max_i);
         node.right = buildTree(nums, max_i + 1, j);
         return node;

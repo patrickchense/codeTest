@@ -1,6 +1,6 @@
 package leetcode.tree;
 
-import util.TreeNode;
+import util.BSTNode;
 
 /*
 701
@@ -42,9 +42,9 @@ public class InsertBinaryTree {
 
     }
 
-    public static TreeNode insertIntoBST(TreeNode root, int val) {
+    public static BSTNode insertIntoBST(BSTNode root, int val) {
         if (root == null) {
-            return new TreeNode(val);
+            return new BSTNode(val);
         }
         if (root.val > val) {
             root.left = insertIntoBST(root.left, val);
@@ -54,19 +54,19 @@ public class InsertBinaryTree {
         return root;
     }
 
-    public TreeNode insertIntoBST2(TreeNode root, int val) {
+    public BSTNode insertIntoBST2(BSTNode root, int val) {
         if (root == null) {
-            return new TreeNode(val);
+            return new BSTNode(val);
         }
         helper(root, val);
         return root;
     }
 
-    private void helper(TreeNode root, int val) {
+    private void helper(BSTNode root, int val) {
         if (root.val < val && root.right == null) {
-            root.right = new TreeNode(val);
+            root.right = new BSTNode(val);
         } else if (root.val > val && root.left == null) {
-            root.left = new TreeNode(val);
+            root.left = new BSTNode(val);
         } else if (root.val > val) {
             helper(root.left, val);
         } else {

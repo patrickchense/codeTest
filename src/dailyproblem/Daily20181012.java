@@ -1,6 +1,6 @@
 package dailyproblem;
 
-import util.TreeNode;
+import util.BSTNode;
 
 /*
 A unival tree (which stands for "universal value") is a tree where all nodes under it have the same value.
@@ -27,7 +27,7 @@ public class Daily20181012 {
 
     }
 
-    public int countUnivalTrees(TreeNode root) {
+    public int countUnivalTrees(BSTNode root) {
         return 0;
     }
 }

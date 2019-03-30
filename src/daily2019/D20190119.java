@@ -1,6 +1,6 @@
 package daily2019;
 
-import util.TreeNode;
+import util.BSTNode;
 
 /*
 Print the nodes in a binary tree level-wise. For example, the following should print 1, 2, 3, 4, 5.
@@ -22,11 +22,11 @@ Print the nodes in a binary tree level-wise. For example, the following should p
 public class D20190119 {
 
     public static void main(String[] args) {
-        TreeNode n1 = new TreeNode(1);
-        TreeNode n2 = new TreeNode(2);
-        TreeNode n3 = new TreeNode(3);
-        TreeNode n4 = new TreeNode(4);
-        TreeNode n5 = new TreeNode(5);
+        BSTNode n1 = new BSTNode(1);
+        BSTNode n2 = new BSTNode(2);
+        BSTNode n3 = new BSTNode(3);
+        BSTNode n4 = new BSTNode(4);
+        BSTNode n5 = new BSTNode(5);
 
         n1.left = n2;
         n3.left = n4;
@@ -34,7 +34,7 @@ public class D20190119 {
         n1.right = n3;
 
         StringBuilder sb = new StringBuilder();
-        TreeNode.printLevelOrderIgnoreNull(n1, sb);
+        BSTNode.printLevelOrderIgnoreNull(n1, sb);
         System.out.println(sb.substring(0, sb.length() - 1));
     }
 }

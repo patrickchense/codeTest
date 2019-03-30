@@ -1,6 +1,6 @@
 package leetcode.tree;
 
-import util.TreeNode;
+import util.BSTNode;
 
 /*
 700 Search in a Binary Search Tree
@@ -14,7 +14,7 @@ public class SearchBST {
 
     }
 
-    public static TreeNode searchBST(TreeNode root, int val) {
+    public static BSTNode searchBST(BSTNode root, int val) {
         if (root == null) return null;
         if (root.val == val) return root;
         else if (root.val > val) {

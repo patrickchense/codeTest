@@ -1,6 +1,6 @@
 package daily2019;
 
-import util.TreeNode;
+import util.BSTNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,32 +34,32 @@ You can assume each node has a parent pointer.
 public class D20190214 {
 
     public static void main(String[] args) {
-        TreeNode node = new TreeNode();
+        BSTNode node = new BSTNode();
         node.val = 10;
-        TreeNode node1 = new TreeNode();
+        BSTNode node1 = new BSTNode();
         node1.val = 5;
         node.left = node1;
-        TreeNode node2 = new TreeNode();
+        BSTNode node2 = new BSTNode();
         node2.val = 30;
         node.right = node2;
-        TreeNode node21 = new TreeNode();
+        BSTNode node21 = new BSTNode();
         node21.val = 22;
         node2.left = node21;
-        TreeNode node22 = new TreeNode();
+        BSTNode node22 = new BSTNode();
         node22.val = 35;
         node2.right = node22;
 
         System.out.println(findNextInOrder(node, 22));
 
-        TreeNode node211 = new TreeNode();
+        BSTNode node211 = new BSTNode();
         node211.val = 19;
         node21.left = node211;
 
-        TreeNode node2111 = new TreeNode();
+        BSTNode node2111 = new BSTNode();
         node2111.val = 15;
         node211.left = node2111;
 
-        TreeNode node2112 = new TreeNode();
+        BSTNode node2112 = new BSTNode();
         node2112.val = 21;
         node211.right = node2112;
 
@@ -75,7 +75,7 @@ public class D20190214 {
 
     }
 
-    public static int findNextInOrder(TreeNode root, int target) {
+    public static int findNextInOrder(BSTNode root, int target) {
         if(root == null) return -1;
         List<Integer> inOrderVals = new ArrayList<>();
         root.inOrder(root, inOrderVals);
@@ -86,7 +86,7 @@ public class D20190214 {
         return -1;
     }
 
-    public static void findNextInOrderBetter(TreeNode root, int target, int last, Boolean nextOne, Integer result) {
+    public static void findNextInOrderBetter(BSTNode root, int target, int last, Boolean nextOne, Integer result) {
 
     }
 }

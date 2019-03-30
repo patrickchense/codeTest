@@ -1,10 +1,6 @@
 package daily2019;
 
-import util.ArrayUtil;
-import util.TreeNode;
-
-import java.util.ArrayList;
-import java.util.List;
+import util.BSTNode;
 
 /*
 Given a binary tree, find a minimum path sum from root to a leaf.
@@ -44,15 +40,15 @@ https://www.geeksforgeeks.org/print-the-first-shortest-root-to-leaf-path-in-a-bi
 public class D20190216 {
 
     public static void main(String[] args) {
-        TreeNode n1 = new TreeNode(-1);
-        TreeNode n2 = new TreeNode(2);
-        TreeNode n3 = new TreeNode(1);
+        BSTNode n1 = new BSTNode(-1);
+        BSTNode n2 = new BSTNode(2);
+        BSTNode n3 = new BSTNode(1);
         n3.left = n1;
-        TreeNode n4 = new TreeNode(5);
-        TreeNode n5 = new TreeNode(5);
+        BSTNode n4 = new BSTNode(5);
+        BSTNode n5 = new BSTNode(5);
         n4.right = n2;
         n5.right = n3;
-        TreeNode n6 = new TreeNode(10);
+        BSTNode n6 = new BSTNode(10);
         n6.left = n4;
         n6.right = n5;
 
@@ -65,8 +61,8 @@ public class D20190216 {
     // 怎么把两个条件结合起来？ 一个是sum 一个是记录node val
     // 分2步走，找到最小的leaf, 在path
     static int minSum = Integer.MAX_VALUE;
-    static TreeNode minLeaf = null;
-    public static void minSum(TreeNode root, int sum){
+    static BSTNode minLeaf = null;
+    public static void minSum(BSTNode root, int sum){
         if(root!=null){
             sum=sum+root.val;
             if(sum < minSum && root.left==null && root.right==null){
@@ -78,7 +74,7 @@ public class D20190216 {
             minSum(root.right,sum);
         }
     }
-    public static Boolean path(TreeNode root, TreeNode leaf){
+    public static Boolean path(BSTNode root, BSTNode leaf){
         if(root==null) return false;
         if ((root == leaf) || path(root.left, leaf) ||path(root.right, leaf) )
         {
@@ -89,7 +85,7 @@ public class D20190216 {
     }
 
     //计算最小
-    public static int minPathSum(TreeNode root) {
+    public static int minPathSum(BSTNode root) {
         if(root == null) return 0;
         int sum = root.val;
         int leftSum = Integer.MAX_VALUE;

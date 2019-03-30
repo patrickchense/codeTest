@@ -17,7 +17,7 @@ node = Node('root', Node('left', Node('left.left')), Node('right'))
 assert deserialize(serialize(node)).left.left.val == 'left.left'
  */
 
-import util.TreeNode;
+import util.BSTNode;
 
 /*
 二叉树遍历， preorder, inorder, postorder, and revert binary tree back.
@@ -33,15 +33,15 @@ https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-t
 public class Daily20181007 {
 
     public static void main(String[] args) {
-        TreeNode node = new TreeNode();
+        BSTNode node = new BSTNode();
         node.val = 10;
-        TreeNode left = new TreeNode();
+        BSTNode left = new BSTNode();
         left.val = 8;
         node.left = left;
-        TreeNode right = new TreeNode();
+        BSTNode right = new BSTNode();
         right.val = 11;
         node.right = right;
-        TreeNode leftleft = new TreeNode();
+        BSTNode leftleft = new BSTNode();
         leftleft.val = 5;
         left.left = leftleft;
 
@@ -49,14 +49,14 @@ public class Daily20181007 {
         System.out.println(serialize);
     }
 
-    public static String serializeTree(TreeNode root) {
+    public static String serializeTree(BSTNode root) {
         StringBuilder sb = new StringBuilder("{");
         helpSerialize(root, sb);
         sb.append("}");
         return sb.toString();
     }
 
-    static void helpSerialize(TreeNode node, StringBuilder sb) {
+    static void helpSerialize(BSTNode node, StringBuilder sb) {
         if (node == null) return;
         else {
             if (sb.length() > 1) sb.append(",");
@@ -69,7 +69,7 @@ public class Daily20181007 {
         if (node.right != null) helpSerialize(node.right, sb);
     }
 
-    public static  TreeNode deserializeTree(String nodeStr) {
+    public static BSTNode deserializeTree(String nodeStr) {
         return null;
     }
 }

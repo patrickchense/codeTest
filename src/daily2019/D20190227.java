@@ -1,6 +1,6 @@
 package daily2019;
 
-import util.TreeNode;
+import util.BSTNode;
 
 /*
 Given a binary tree where all nodes are either 0 or 1, prune the tree so that subtrees containing all 0s are removed.
@@ -32,13 +32,13 @@ We do not remove the tree at the root or its left child because it still has a 1
  */
 public class D20190227 {
     public static void main(String[] args) {
-        TreeNode n1 = new TreeNode(0);
-        TreeNode n2 = new TreeNode(0);
-        TreeNode n3 = new TreeNode(0);
-        TreeNode n4 = new TreeNode(1);
-        TreeNode n5 = new TreeNode(1);
-        TreeNode n6 = new TreeNode(0);
-        TreeNode n7 = new TreeNode(0); //root
+        BSTNode n1 = new BSTNode(0);
+        BSTNode n2 = new BSTNode(0);
+        BSTNode n3 = new BSTNode(0);
+        BSTNode n4 = new BSTNode(1);
+        BSTNode n5 = new BSTNode(1);
+        BSTNode n6 = new BSTNode(0);
+        BSTNode n7 = new BSTNode(0); //root
         n4.left = n1;
         n4.right = n2;
         n7.left = n5;
@@ -57,7 +57,7 @@ public class D20190227 {
     /*
     find sum of the subtree, if sum == 0 , subtree == null
      */
-    public static int pruneBinaryTree(TreeNode root) {
+    public static int pruneBinaryTree(BSTNode root) {
         if (root == null) return 0;
         int leftSum = 0;
         int rightSum = 0;

@@ -1,6 +1,6 @@
 package leetcode.locked;
 
-import util.TreeNode;
+import util.BSTNode;
 
 import java.util.Stack;
 
@@ -38,12 +38,12 @@ An empty tree is represented by "" instead of "()".
  */
 public class ConstructBinaryFromString {
 
-    public static TreeNode constructTreeFromString(String s) {
+    public static BSTNode constructTreeFromString(String s) {
         if (s.indexOf('(') < 0) {
-            return new TreeNode(Integer.valueOf(s));
+            return new BSTNode(Integer.valueOf(s));
         }
         int index_l = s.indexOf('(');
-        TreeNode node = new TreeNode(Integer.valueOf(s.substring(0, index_l)));
+        BSTNode node = new BSTNode(Integer.valueOf(s.substring(0, index_l)));
         int count = 1;
         int i = index_l + 1;
         for (; i < s.length(); i++) {
@@ -60,16 +60,16 @@ public class ConstructBinaryFromString {
     /*
     O(n) space, O(n logn) time ?
      */
-    public static TreeNode str2tree(String s) {
-        Stack<TreeNode> stack = new Stack<>();
+    public static BSTNode str2tree(String s) {
+        Stack<BSTNode> stack = new Stack<>();
         for(int i = 0, j = i; i < s.length(); i++, j = i){
             char c = s.charAt(i);
             if(c == ')')    stack.pop();
             else if(c >= '0' && c <= '9' || c == '-'){
                 while(i + 1 < s.length() && s.charAt(i + 1) >= '0' && s.charAt(i + 1) <= '9') i++;
-                TreeNode currentNode = new TreeNode(Integer.valueOf(s.substring(j, i + 1)));
+                BSTNode currentNode = new BSTNode(Integer.valueOf(s.substring(j, i + 1)));
                 if(!stack.isEmpty()){
-                    TreeNode parent = stack.peek();
+                    BSTNode parent = stack.peek();
                     if(parent.left != null)    parent.right = currentNode;
                     else parent.left = currentNode;
                 }
@@ -81,7 +81,7 @@ public class ConstructBinaryFromString {
 
     public static void main(String[] args) {
         String s = "4(2(3)(1))(6(5))";
-        TreeNode node = constructTreeFromString(s);
+        BSTNode node = constructTreeFromString(s);
         StringBuilder sb = new StringBuilder();
         node.printInOrder(node, sb);
         System.out.println(sb.toString());

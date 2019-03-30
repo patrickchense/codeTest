@@ -1,6 +1,6 @@
 package daily2019;
 
-import util.TreeNode;
+import util.BSTNode;
 
 /*
 Given two non-empty binary trees s and t, check whether tree t has exactly the same structure and node values with a subtree of s.
@@ -42,27 +42,27 @@ https://www.geeksforgeeks.org/find-the-largest-subtree-in-a-tree-that-is-also-a-
 public class D20190127 {
 
     public static void main(String[] args) {
-        TreeNode n1 = new TreeNode(10);
-        TreeNode n2 = new TreeNode(4);
-        TreeNode n3 = new TreeNode(6);
-        TreeNode n4 = new TreeNode(30);
+        BSTNode n1 = new BSTNode(10);
+        BSTNode n2 = new BSTNode(4);
+        BSTNode n3 = new BSTNode(6);
+        BSTNode n4 = new BSTNode(30);
         n2.right = n4;
         n1.left = n2;
         n1.right = n3;
 
-        TreeNode t1 = new TreeNode(26);
-        TreeNode t2 = new TreeNode(10);
-        TreeNode t3 = new TreeNode(4);
-        TreeNode t4 = new TreeNode(6);
-        TreeNode t5 = new TreeNode(30);
+        BSTNode t1 = new BSTNode(26);
+        BSTNode t2 = new BSTNode(10);
+        BSTNode t3 = new BSTNode(4);
+        BSTNode t4 = new BSTNode(6);
+        BSTNode t5 = new BSTNode(30);
 
         t3.right = t5;
         t2.left = t3;
         t2.right = t4;
         t1.left = t2;
 
-        TreeNode t6 = new TreeNode(3);
-        TreeNode t7 = new TreeNode(3);
+        BSTNode t6 = new BSTNode(3);
+        BSTNode t7 = new BSTNode(3);
 
         t6.right = t7;
         t1.right = t6;
@@ -70,27 +70,27 @@ public class D20190127 {
         System.out.println(isSubTree(t1, n1));
     }
 
-    public static boolean isSubTree(TreeNode parent, TreeNode sub) {
-        TreeNode start = findStart(parent, sub.val);
+    public static boolean isSubTree(BSTNode parent, BSTNode sub) {
+        BSTNode start = findStart(parent, sub.val);
 
         if (start == null) return false;
 
         return compareBT(start, sub);
     }
 
-    private static boolean compareBT(TreeNode start, TreeNode sub) {
+    private static boolean compareBT(BSTNode start, BSTNode sub) {
         if (start == null && sub == null) return true;
         if (start == null || sub == null) return false;
         if (start.val != sub.val) return false;
         return compareBT(start.left, sub.left) && compareBT(start.right, sub.right);
     }
 
-    private static TreeNode findStart(TreeNode parent, int val) {
+    private static BSTNode findStart(BSTNode parent, int val) {
         if (parent != null && parent.val == val) {
             return parent;
         }
         if (parent == null) return null;
-        TreeNode res = findStart(parent.left, val);
+        BSTNode res = findStart(parent.left, val);
         if (res != null) return res;
         return findStart(parent.right, val);
     }
