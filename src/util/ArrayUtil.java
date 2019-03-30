@@ -6,8 +6,8 @@ import java.util.List;
 
 public class ArrayUtil {
 
-    public static void swap(char[] arr, int i, int j) {
-        char c = arr[i];
+    public static void swap(Object[] arr, int i, int j) {
+        Object c = arr[i];
         arr[i] = arr[j];
         arr[j] = c;
     }

@@ -19,7 +19,7 @@ https://www.careercup.com/question?id=13580661
  */
 public class Daily20181108 {
 
-    public static char[] swapRGB(char[] arr) {
+    public static Character[] swapRGB(Character[] arr) {
         int i1 = 0;
         int i2 = 0;
         int len = arr.length - 1;
@@ -41,6 +41,6 @@ public class Daily20181108 {
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(swapRGB(new char[]{'G', 'B', 'R', 'R', 'B', 'R', 'G'})));
+        System.out.println(Arrays.toString(swapRGB(new Character[]{'G', 'B', 'R', 'R', 'B', 'R', 'G'})));
     }
 }
