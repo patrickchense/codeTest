@@ -7,4 +7,11 @@ Given an integer n and a list of integers l, write a function that randomly gene
 
  */
 public class D20190102 {
+
+    public static void main(String[] args) {
+
+    }
+
+
+
 }

@@ -11,8 +11,11 @@ import static util.ArrayUtil.printNode;
 /*
 Given k sorted singly linked lists, write a function to merge all the lists into one sorted singly linked list.
 
-@google
+@Google
 @souce https://www.geeksforgeeks.org/merge-k-sorted-linked-lists/
+@review
+@linkedlist
+@sorted
 
  */
 public class Daily20181221 {

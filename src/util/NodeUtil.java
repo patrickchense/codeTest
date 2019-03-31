@@ -12,4 +12,9 @@ public class NodeUtil {
         }
         System.out.println();
     }
+
+    public static void swap(Node n1, Node n2) {
+        n1.next = n2.next;
+        n2.next = n1;
+    }
 }
