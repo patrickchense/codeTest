@@ -1,66 +1,42 @@
 package dailyproblem;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /*
-In a directed graph, each node is assigned an uppercase letter. We define a path's value as the number of most frequently-occurring letter along that path. For example, if a path in the graph goes through "ABACA", the value of the path is 3,
- since there are 3 occurrences of 'A' on the path.
+Given an array of numbers, find the length of the longest increasing subsequence in the array. The subsequence does not necessarily have to be contiguous.
 
-Given a graph with n nodes and m directed edges, return the largest value path of the graph. If the largest value is infinite, then return null.
+For example, given the array [0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15], the longest increasing subsequence has length 6: it is 0, 2, 6, 9, 11, 15.
 
-The graph is represented with a string and an edge list. The i-th character represents the uppercase letter of the i-th node. Each tuple in the edge list (i, j) means there is a directed edge from the i-th node to the j-th node.
-Self-edges are possible, as well as multi-edges.
+@Microsoft
+@array
+@subarray
+@dp
+非连续增长子序列, 典型dp
 
-For example, the following input graph:
-
-ABACA
-[(0, 1),
- (0, 2),
- (2, 3),
- (3, 4)]
-Would have maximum value 3 using the path of vertices [0, 2, 3, 4], (A, A, C, A).
-
-The following input graph:
-
-A
-[(0, 0)]
-Should return null, since we have an infinite loop.
-
-
-@google
-
+d(i) = d(i-1) + 1 if a(i) > a(i-1) else d(i) = 1;
  */
 public class Daily20181218 {
 
-    /*
-        null:
-            include self cycle
-            include cycle
-        find all the path
-        build nodestr
-     */
-    public static Integer frequenceGraph(String nodes, List<List<Integer>> paths) {
-        List<List<Integer>> buildPaths = new ArrayList<>();
-        for (int i = 0; i < paths.size(); i++) {
-            List<Integer> path = paths.get(i);
-            List<Integer> buildPath = new ArrayList<>();
-            if (path.get(0).intValue() == path.get(1)) {
-                buildPath.add(path.get(0));
-            }
-            else {
-               for (int j = 0; j < paths.size(); j++) {
-                   if (i == j) continue;
-
-               }
-            }
-            buildPaths.add(buildPath);
-        }
-        // find the result
-        return null;
-    }
-
     public static void main(String[] args) {
-
+        int[] arr = new int[]{0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15};
+        System.out.println(longestIncreasingSubArray(arr));
     }
+
+    // 这个不对，这个是contiguous的序列，需要不contiguous
+    public static int longestIncreasingSubArray(int[] arr) {
+        int[] d = new int[arr.length];
+        d[0] = 1;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > arr[i-1]) {
+                d[i] = d[i-1] + 1;
+            } else {
+                d[i] = 1;
+            }
+        }
+        int len = d[0];
+        for (int l : d) {
+            len = Math.max(l, len);
+        }
+        return len;
+    }
+
+    // 修改dp公式,
 }
