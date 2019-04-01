@@ -11,6 +11,7 @@ Given a list of points, a central point, and an integer k, find the nearest k po
 For example, given the list of points [(0, 0), (5, 4), (3, 1)], the central point (1, 2), and k = 2, return [(0, 0), (3, 1)].
 
 @Linkedin
+@hard
 @solved
 @topK
 https://my.oschina.net/leejun2005/blog/135085 topK
