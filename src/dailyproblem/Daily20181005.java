@@ -8,9 +8,12 @@ import java.util.List;
 Given a list of numbers and a number k, return whether any two numbers from the list add up to k.
 For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
 
- */
+@solved
+@review
+@array
+@classic
 
-/*
+经典数组 two elements sum == target 问题
 source https://leetcode.com/problems/two-sum/description/  two sum, could use Map, then O(n)
 其他变形：
 2. TODO 多数相加=target, 然后所有的组合

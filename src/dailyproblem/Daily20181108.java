@@ -16,6 +16,9 @@ For example, given the array ['G', 'B', 'R', 'R', 'B', 'R', 'G'], it should beco
 https://www.careercup.com/question?id=13580661
 
 @solved
+@array
+@inplace
+
  */
 public class Daily20181108 {
 

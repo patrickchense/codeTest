@@ -7,6 +7,8 @@ For example, given [9, 11, 8, 5, 7, 10], you should return 5, since you could bu
 
 @facebook
 @solved
+@array
+
  */
 public class Daily20181120 {
 

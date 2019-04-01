@@ -22,8 +22,10 @@ import util.BTNode;
 /*
 二叉树遍历， preorder, inorder, postorder, and revert binary tree back.
 
+@binarygtree
+@solved
+
 related questions:
-TODO print binary tree
 https://leetcode.com/problems/print-binary-tree/description/
 
 string to binary tree inorder/postorder

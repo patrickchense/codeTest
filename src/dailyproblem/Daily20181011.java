@@ -8,6 +8,8 @@ For example, the message '111' would give 3, since it could be decoded as 'aaa',
 
 You can assume that the messages are decodable. For example, '001' is not allowed.
 
+@solved
+@string
 
  */
 public class Daily20181011 {

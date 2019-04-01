@@ -13,6 +13,9 @@ https://galayko.rocks/posts/probability/
 https://www.geeksforgeeks.org/select-a-random-number-from-stream-with-o1-space/
 
 @source
+@review
+Random 问题
+
 https://www.geeksforgeeks.org/reservoir-sampling/
 
 For i = 0, we would’ve picked uniformly from [0, 0].

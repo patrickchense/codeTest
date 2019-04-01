@@ -12,7 +12,9 @@ Do this in constant space and in one pass.
 
 @solved
 @two pointers
+@linkedlist
 
+经典k问题
  */
 public class Daily20181030 {
 

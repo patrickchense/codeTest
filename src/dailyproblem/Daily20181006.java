@@ -2,6 +2,10 @@ package dailyproblem;
 
 import java.util.Arrays;
 
+/*
+@array
+@solved
+ */
 public class Daily20181006 {
 
     /*

@@ -22,6 +22,8 @@ d  e f  g
 
 @classic
 @solved
+@binarytree
+@traverse
 
 preOder/inOrder string to a tree  @memtioned bfd_dfs.md
 

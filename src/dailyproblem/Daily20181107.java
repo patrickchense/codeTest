@@ -11,6 +11,7 @@ As another example, given the string "google", you should return "elgoogle".
 
 @quora
 @dp
+@solved
 https://kennyzhuang.gitbooks.io/algorithms-collection/content/shortest_palindrome.html
 
 related

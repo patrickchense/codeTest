@@ -10,6 +10,9 @@ Given the array [-5, -1, -8, -9], the maximum sum would be 0, since we would not
 Do this in O(N) time.
 @amazon
 @solved
+@array
+@dp
+
  */
 public class Daily20181122 {
 

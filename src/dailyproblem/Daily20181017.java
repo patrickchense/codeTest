@@ -17,7 +17,11 @@ original:
 https://www.programcreek.com/2013/02/longest-substring-which-contains-2-unique-characters/
 
 related
-@re-read
+@review
+@answered
+@string
+
+经典字符串，子字符串k问题
 https://leetcode.com/problems/find-k-th-smallest-pair-distance/description/
 
 
