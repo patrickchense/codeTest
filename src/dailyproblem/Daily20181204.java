@@ -9,6 +9,9 @@ For example, pow(2, 10) should return 1024.
 
 @google
 @solved
+@math
+
+pow 计算
  */
 public class Daily20181204 {
     // only consider y >= 0

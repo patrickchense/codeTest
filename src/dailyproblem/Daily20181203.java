@@ -10,6 +10,9 @@ For example, given the multiset {15, 5, 20, 10, 35, 15, 10}, it would return tru
 Given the multiset {15, 5, 20, 10, 35}, it would return false, since we can't split it up into two subsets that add up to the same sum.
 
 @facebook
+@array
+@sum
+@subarray
 @solved
  */
 public class Daily20181203 {
