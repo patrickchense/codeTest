@@ -13,6 +13,7 @@ For example, this matrix has 4 islands.
 1 1 0 0 1
 
 @amazon
+@matrix
 
  */
 public class Daily20181227 {
