@@ -18,6 +18,7 @@ Given the input string abc, return ["a", "b", "c"].
 @string
 @palindrome
 @solved
+@15min
 
 split string into 最长子序列(palindrome)
 
