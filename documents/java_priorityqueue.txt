@@ -1,0 +1,14 @@
+https://yikun.github.io/2015/04/07/Java-PriorityQueue%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/
+使用的场景
+https://www.iteye.com/topic/1061958  topN 基于最小堆
+这个例子的关键在于构建数组heap，怎么root最小
+https://my.oschina.net/leejun2005/blog/135085 通过priorityQueue来解决topN
+
+PriorityQueue的特点：
+插入方法（offer、poll、remove() 和 add 方法）提供 O(log(n)) 时间；
+为 remove(Object) 和 contains(Object) 方法提供线性时间；
+为检索方法（peek、element 和 size）提供固定时间。
+
+java的优先级队列就是通过heap tree来实现的
+https://wlh0706-163-com.iteye.com/blog/1850125 这个帖子的逻辑解释的很清楚了
+
