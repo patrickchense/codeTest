@@ -41,4 +41,17 @@ public class ArrayUtil {
             System.out.println(Arrays.toString(m));
         }
     }
+
+    public static void reverse(int[] arr, int left, int right){
+        if(arr == null || arr.length == 1)
+            return;
+
+        while(left < right){
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            left++;
+            right--;
+        }
+    }
 }
