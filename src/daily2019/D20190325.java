@@ -1,5 +1,8 @@
 package daily2019;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Given a string s and a list of words words, where each word is the same length, find all starting indices of substrings in s that is a concatenation of every word in words exactly once.
 
@@ -13,4 +16,14 @@ The order of the indices does not matter.
 
  */
 public class D20190325 {
+
+    public static void main(String[] args) {
+
+    }
+
+    public static List<Integer> findConcatStr(String str, String[] strs) {
+        List<Integer> res = new ArrayList<>();
+
+        return res;
+    }
 }
