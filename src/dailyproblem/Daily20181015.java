@@ -7,9 +7,16 @@ For example, given the query string de and the set of strings [dog, deer, deal],
 
 Hint: Try preprocessing the dictionary into a more efficient data structure to speed up queries.
 
-TODO
+@twitter
+@string
+
  */
 
 public class Daily20181015 {
+
+    public static void main(String[] args) {
+
+    }
+
 
 }
