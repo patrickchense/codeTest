@@ -17,6 +17,37 @@ https://docs.google.com/document/d/1Q27QkRBOTNQXbBzkKVxV96_mcxnfEKQatonsJFpqw-o/
 每个阶段的最优状态可以从之前某个阶段的某个或某些状态直接得到, 这个性质叫做最优子结构；
 而不管之前这个状态是如何得到的, 这个性质叫做无后效性。
 ```
+##[DP](https://www.sanfoundry.com/dynamic-programming-problems-solutions/)
+
+Dynamic programming is a method for solving a complex problem by breaking it down into simpler subproblems, solving each of those subproblems just once, and storing their solutions – in an array(usually).   
+Now, everytime the same sub-problem occurs, instead of recomputing its solution, the previously calculated solutions are used, thereby saving computation time at the expense of storage space
+
+###Dynamic programming can be implemented in two ways –
+1. Memoization 
+Memoization uses the top-down technique to solve the problem i.e. it begin with original problem then breaks it into sub-problems and solve these sub-problems in the same way   
+In this approach, you assume that you have already computed all subproblems. You typically perform a recursive call (or some iterative equivalent) from the main problem. You ensure that the recursive call never recomputes a subproblem because you cache the results, and thus duplicate sub-problems are not recomputed.
+
+2. Tabulation
+Tabulation is the typical Dynamic Programming approach. Tabulation uses the bottom up approach to solve the problem, i.e., by solving all related sub-problems first, typically by storing the results in an array.   
+Based on the results stored in the array, the solution to the “top” / original problem is then computed.   
+
+###适用题
+The problems that can be solved by using Dynamic Programming has the following two main properties-
+1. Overlapping sub-problems
+Overlapping subproblems is a property in which a problem can be broken down into subproblems which are used multiple times.   
+Dynamic Programming is mainly used when solutions of same subproblems are needed again and again. In dynamic programming, computed solutions to subproblems are stored in a array so that these don’t have to recomputed.    
+So Dynamic Programming is not useful when there are no overlapping subproblems because there is no point storing the solutions if they are not needed again.   
+2. Optimal Substructure
+Optimal substructure is a property in which an optimal solution of the original problem can be constructed efficiently from the optimal solutions of its sub-problems.   
+If a given problem obey both these properties, then the problem can be solved by using Dynamic Programming.
+
+###Steps to follow for solving a DP problem 
+1. Express a solution mathematically
+2. Express a solution recursively
+3. Either develop a bottom up algorithm or top-down memoized algorithm
+
+
+
 
 ##典型问题，最长公共子列
 ```
@@ -73,26 +104,23 @@ function LCSLength(X[1..m], Y[1..n])
 * 用滚动数组优化
 比如，状态转移方程: f[i][j] = f[i-1][j]+f[i][j-1] 与i-2无关了, 那么i-2可以重复利用，就对i用2取模, f[i%2][j]=f[(i-1)%2][j]+f[i%2][j-1]
 
-###非常好的教程 https://blog.csdn.net/mmc2015/article/details/73558346 
+###[非常好的教程](https://blog.csdn.net/mmc2015/article/details/73558346) 
 
 
-##Egg Drop
-###	https://leetcode.com/problems/super-egg-drop/description/
+##[Egg Drop](https://leetcode.com/problems/super-egg-drop/description/)
 ### 解法, 
 * DP 二分的,  O(K * NlogN), Space O(K*N)
 * DP 最优判断， 没理解呢
 * 纯数学,  也没理解
 
 
-##括号匹配, 最长匹配
-###https://leetcode.com/problems/longest-valid-parentheses/description/
+##[括号匹配, 最长匹配](https://leetcode.com/problems/longest-valid-parentheses/description/)
 ###stack 解法
 自己解了大半，一个关键点没想通，缺点，需要O(n) space
 这种括号匹配的stack解法，总是在(的时候push，)的时候pop，然后把中间的计算结果push，然后比较peak的值在push，最后就是最好的结果
 ###DP解法 
 
-##回文最长,(字符串操作), 二维数组存储dp中间结果
-###https://leetcode.com/problems/longest-palindromic-substring/description/
+##[回文最长,(字符串操作), 二维数组存储dp中间结果](https://leetcode.com/problems/longest-palindromic-substring/description/)
 ###更快的解法，是
  ```java
  if(isPalindrome(ca, i - max - 1, i)) {
@@ -105,17 +133,14 @@ function LCSLength(X[1..m], Y[1..n])
 每次记录max, 然后下次遍历从i-max-1 开始
 ```
 
-##多个数字和（bit位记录状态）配合hashmap
-###https://leetcode.com/problems/can-i-win/description/ 
+##[多个数字和（bit位记录状态）配合hashmap](https://leetcode.com/problems/can-i-win/description/) 
 
 
-###https://leetcode.com/problems/coin-change/description/ 
+###[coin转换](https://leetcode.com/problems/coin-change/description/) 
 
-##正则匹配，DP问题，关键在于保存二维数组
-###https://www.lintcode.com/problem/regular-expression-matching/description
+##[正则匹配，DP问题，关键在于保存二维数组](https://www.lintcode.com/problem/regular-expression-matching/description)
 
-##字符串 经典回文计算, 矩阵型？？？
-###https://leetcode.com/problems/palindromic-substrings/description/ 
+##[字符串 经典回文计算, 矩阵型](https://leetcode.com/problems/palindromic-substrings/description/) 
 ```
 二维数组保存状态，DP[ i ][ j ] 存储 index 从 i ~ j 是不是回文
 状态转移公式: dp[i]=dp[i-1]+tmpNum
@@ -137,8 +162,7 @@ if(s.charAt(i) == s.charAt(j) && (j - i <= 2 || dp[i + 1][j - 1])){
 ```
 回文问题，一般都是通过2指针或者DP来解决！！！！
 
-##最长子串回文，失败
-###https://leetcode.com/problems/longest-palindromic-subsequence/description/ 
+##[最长子串回文，失败](https://leetcode.com/problems/longest-palindromic-subsequence/description/) 
 ```
 找不到状态转移方程
 差点就找到了，画图的时候判断要更仔细，画图有错
@@ -147,8 +171,7 @@ otherwise, dp[i][j] = Math.max(dp[i+1][j], dp[i][j-1])
 Initialization: dp[i][i] = 1
 ```
 
-##回文3
-###https://leetcode.com/problems/palindrome-partitioning-ii/description/
+##[回文3](https://leetcode.com/problems/palindrome-partitioning-ii/description/)
 ```最小cut，分割s
 状态: cut[i]
 cut[i] is the minimum of cut[j - 1] + 1 (j <= i), if [j, i] is palindrome
@@ -160,8 +183,7 @@ If [j, i] is palindrome, [j + 1, i - 1] is palindrome, and c[j] == c[i]
             }
 ```
 
-##回文4
-###https://leetcode.com/problems/count-different-palindromic-subsequences/description/
+##[回文4](https://leetcode.com/problems/count-different-palindromic-subsequences/description/)
 
 
 ##例题4:最长递增子序列:  d[i] = max{ d[j] | j < i && a[j] < a[i] } + 1
@@ -255,20 +277,17 @@ d[i] = max{ d[j] | j < i && a[j] < a[i] } + 1;
 
 ###斜率优化
 
-##数组，连接最长，升序
-###https://leetcode.com/problems/maximum-length-of-pair-chain/description/
+##[数组，连接最长，升序](https://leetcode.com/problems/maximum-length-of-pair-chain/description/)
 ###solution
 貌似DP矩阵，但是可以用sort(O(nlogn))，然后就不用DP解决，很快
 
 
-##序列
-###https://leetcode.com/problems/integer-break/description/ 
+##[序列](https://leetcode.com/problems/integer-break/description/) 
 ###solution
 d[i] = 最大乘积
 d[i] = Math.max(j*(i-j),Math.max(j*dp[i-j],max)) // 重点是这里的j从 (i+1)/2 开始往下遍历
 
-##序列
-###https://leetcode.com/problems/2-keys-keyboard/description/ 
+##[序列](https://leetcode.com/problems/2-keys-keyboard/description/) 
 ```
 copy 字符串 最小次数
 i %j ==0
@@ -282,8 +301,7 @@ else
 d[i] = i;  //子数
 ```
 
-##矩阵
-###https://leetcode.com/problems/predict-the-winner/description/ 
+##[矩阵](https://leetcode.com/problems/predict-the-winner/description/) 
 ###solution
 ```
 数组，轮流挑选，最大和
@@ -294,8 +312,7 @@ j = i+ 1 .. n-1
 dp[j] = Math.max(nums[i] - dp[j], nums[j] - dp[j - 1]);
 ```
 
-##序列, 数学，推理
-###https://leetcode.com/problems/count-numbers-with-unique-digits/description/ 
+##[序列, 数学，推理](https://leetcode.com/problems/count-numbers-with-unique-digits/description/) 
 ```
 没有重复数字的数量， 10^n 
 然后当n>10的时候，将不可能有不重复数字的数
@@ -304,15 +321,13 @@ uniqueDigits = uniqueDigits * availableNumber;
             availableNumber--;
 ```
 
-##序列
-###https://leetcode.com/problems/is-subsequence/description/ 
+##[序列](https://leetcode.com/problems/is-subsequence/description/) 
 ###子序列匹配
 ```
 if (s[i] == t[d[i-1]]) d[i] = d[i-1] +1  else d[i] = d[i-1] 
 ```
 
-##序列 target sum
-###https://leetcode.com/problems/target-sum/description/
+##[序列 target sum](https://leetcode.com/problems/target-sum/description/)
 ###solution
 ```数组数字，每次+/-, 最终的结果==target
 高级用法，滚动更新，然后长度不再是n, 而是 2*total + 1 (total = Sum(an))
@@ -322,8 +337,7 @@ dp[i] += dp[i - n]
 ```
 
 
-##序列, BST 的总数
-###https://leetcode.com/problems/unique-binary-search-trees/description/ 
+##[序列, BST 的总数](https://leetcode.com/problems/unique-binary-search-trees/description/)
 ###solution
 ```
 通过推导得到公式: 每个n作为root
@@ -338,24 +352,21 @@ G(n) = G(0) * G(n-1) + G(1) * G(n-2) .... + G(n-1) * G(0)
 通过一个序列d[n+1] 
 ```
 
-##序列, SUM 求和的总数
-###https://leetcode.com/problems/combination-sum-iv/description/ 
+##[序列, SUM 求和的总数](https://leetcode.com/problems/combination-sum-iv/description/ )
 ###solution
 ```
 序列的大小 d[target] 
 d[i] += i - nums[j] < 0 ? 0 : d[i - nums[j]];
 ```
 
-##矩阵
-###https://leetcode.com/problems/minimum-path-sum/description/ 
+##[矩阵](https://leetcode.com/problems/minimum-path-sum/description/ )
 ###solution
 ```
 二维数组，求和最小，最上左到最右下
 d[m-1, n-1] = min{d[m-2,n-1], d[m-1, n-2]} + grid[m-1][n-1]
 ```
 
-##矩阵
-###https://leetcode.com/problems/largest-sum-of-averages/description/ 
+##[矩阵](https://leetcode.com/problems/largest-sum-of-averages/description/ )
 ###solution
 ```
 计算，数组切分K个sub之后最大平均值，还是很复杂的
@@ -379,8 +390,7 @@ d[m-1, n-1] = min{d[m-2,n-1], d[m-1, n-2]} + grid[m-1][n-1]
         return f[l - 1][K];
 ```
 
-##矩阵 (hard)
-###https://leetcode.com/problems/k-inverse-pairs-array/description/ 
+##[矩阵 (hard)](https://leetcode.com/problems/k-inverse-pairs-array/description/)
 ###solution
 ```
 n 个数字， k个反向组合( i < j, a[i]>a[j])
@@ -408,5 +418,63 @@ if (k > n*(n-1)/2 || k < 0) return 0;
         }
 ```
 
-##连续子数组和
-###https://leetcode.com/problems/continuous-subarray-sum/description/ 
+##[连续子数组和](https://leetcode.com/problems/continuous-subarray-sum/description/)
+
+##other
+[Kadane’s Algorithm](https://www.sanfoundry.com/dynamic-programming-solutions-kadane-algorithm/)      
+[0 1 Knapsack Problem](https://www.sanfoundry.com/dynamic-programming-solutions-0-1-knapsack-problem/)   
+[Longest Increasing Subsequence Problem](https://www.sanfoundry.com/longest-increasing-subsequence-problem/)   
+[Edit Distance Problem](https://www.sanfoundry.com/dynamic-programming-solutions-edit-distance-problem/)   
+[Integer Knapsack Problem](https://www.sanfoundry.com/dynamic-programming-solutins-integer-knapsack-problem/)   
+[Fibonacci Numbers Problem](https://www.sanfoundry.com/dynamic-programming-solutions-finonacci-numbers-problem/)   
+[Rod Cutting Problem](https://www.sanfoundry.com/dynamic-programming-solutions-rod-cutting-problem/)   
+[Subset Sum Problem](https://www.sanfoundry.com/dynamic-programming-solutions-subset-sum-problem/)   
+[Parentheses Expressions Problem – Catalan numbers](https://www.sanfoundry.com/dynamic-programming-solutions-parentheses-problem/)   
+[Forming Triangles Problem](https://www.sanfoundry.com/dynamic-programming-solutions-forming-triangles-problem/)   
+[Change Making Problem](https://www.sanfoundry.com/dynamic-programming-solutions-change-making-problem/)   
+[Coin Change Problem](https://www.sanfoundry.com/dynamic-programming-solutions-coin-change-problem/)   
+[Number of Ways to Reach a Given Score Problem](https://www.sanfoundry.com/dynamic-programming-solutions-definite-score-problem/)   
+[Matrix Chain Multiplication Problem](https://www.sanfoundry.com/dynamic-programming-solutions-matrix-chain-multiplication-problem/)   
+[Maximum Value of Gifts Problem](https://www.sanfoundry.com/dynamic-programming-solutions-maximum-value-of-gifts-problem/)   
+[Rod Cutting – Maximum Product Problem](https://www.sanfoundry.com/dynamic-programming-solutions-max-rod-cutting-problem/)   
+[Stolen Values Problem](https://www.sanfoundry.com/dynamic-programming-solutions-stolen-values-problem/)   
+[Assembly Line Scheduling](https://www.sanfoundry.com/dynamic-programming-solutions-assembly-line-scheduling/)   
+[Shortest Common Subsequence Problem](https://www.sanfoundry.com/dynamic-programming-solutions-shortest-common-subsequence-problem/)   
+[Boredom Problem](https://www.sanfoundry.com/dynamic-programming-solutions-boredom-problem/)   
+[Longest Common Subsequence Problem](https://www.sanfoundry.com/dynamic-programming-solutions-longest-common-subsequence-problem/)   
+[Binary Trees with N Keys Problem](https://www.sanfoundry.com/dynamic-programming-solutions-binary-trees-with-n-keys-problem/)   
+[Balanced Partition Problem](https://www.sanfoundry.com/dynamic-programming-solutions-balanced-partition-problem/)   
+[Box Stacking Problem](https://www.sanfoundry.com/dynamic-programming-solutions-box-stacking-problem/)   
+[Building Bridges](https://www.sanfoundry.com/dynamic-programming-solutions-building-bridges-problem/)   
+[Dice Throw Problem](https://www.sanfoundry.com/dynamic-programming-solutions-dice-throw-problem/)   
+[Longest Substring Without Duplication Problem](https://www.sanfoundry.com/dynamic-programming-solutions-longest-substring-without-duplication-problem/)   
+[Optimal Game Strategy Problem](https://www.sanfoundry.com/dynamic-programming-solutions-optimal-game-stratedy-problem/)   
+[Minimum Number of Jumps Problem](https://www.sanfoundry.com/dynamic-programming-solutions-minimum-number-of-jumps-problem/)   
+[Binomial Coefficients Problem](https://www.sanfoundry.com/dynamic-programming-solutions-binomial-coefficients-problem/)   
+[Counting Boolean Parenthesization Problem](https://www.sanfoundry.com/dynamic-programming-solutions-boolean-parenthization-problem/)   
+[Building Problem](https://www.sanfoundry.com/dynamic-programming-solutions-building-problem/)   
+[Longest Common Substring Problem](https://www.sanfoundry.com/dynamic-programming-solutions-longest-common-substring-problem/)   
+[Longest Palindromic Subsequence Problem](https://www.sanfoundry.com/dynamic-programming-solutions-longest-palindromic-subsequence-problem/)   
+[Make Palindrome Problem](https://www.sanfoundry.com/dynamic-programming-solutions-make-palindrome-problem/)   
+[Minimum number of Squares Problem](https://www.sanfoundry.com/dynamic-programming-solutions-minimum-number-of-squares-problem/)   
+[Sum of Digits Problem](https://www.sanfoundry.com/dynamic-programming-solutions-sum-of-digits-problem/)   
+[Alice Kindergarden Candies Problem](https://www.sanfoundry.com/dynamic-programming-solutions-candies-problem/)   
+[Mixtures Problem](https://www.sanfoundry.com/dynamic-programming-solutions-mixtures-problem/)   
+[Blueberries Problem](https://www.sanfoundry.com/dynamic-programming-solutions-blueberries-problem/)   
+[Army Problem](https://www.sanfoundry.com/dynamic-programming-solutions-army-dynamic-programming-problem/)   
+[Double Helix Problem](https://www.sanfoundry.com/dynamic-programming-solutions-double-helix-problem/)   
+[Length of the Longest Arithmetic Progression Problem](https://www.sanfoundry.com/dynamic-programming-solutions-longest-arithmetic-progression-problem/)   
+[Newspaper Headline Problem](https://www.sanfoundry.com/dynamic-programming-solutions-newspaper-headline-problem/)   
+[Stock Maximize Problem](https://www.sanfoundry.com/dynamic-programming-solutions-stock-maximize-problem/)   
+[Stock Market Problem](https://www.sanfoundry.com/dynamic-programming-solutions-stock-market-problem/)   
+[Treats for the Cows](https://www.sanfoundry.com/dynamic-programming-solutions-treats-problem/)   
+[Weighted Activity Selection Problem](https://www.sanfoundry.com/dynamic-programming-solutions-weighted-activity-selection-problem/)   
+[Assignments Problem](https://www.sanfoundry.com/dynamic-programming-solutions-assignments-problem/)   
+[Bellman Ford Algorithm](https://www.sanfoundry.com/dynamic-programming-solutions-bellman-ford-algorithm/)   
+[Bytelandian Gold Coins Problem](https://www.sanfoundry.com/dynamic-programming-solutions-bytelandian-gold-coins-problem/)   
+[Cut Ribbon Problem](https://www.sanfoundry.com/dynamic-programming-solutions-cut-ribbon-problem/)   
+[Flloyd Warshall Algorithm](https://www.sanfoundry.com/dynamic-programming-solutions-flloyd-warshall-algorithm/)   
+[Non Decreasing Digits Problem](https://www.sanfoundry.com/dynamic-programming-solutions-non-decreasing-digits-problem/)   
+[T-Primes Problem](https://www.sanfoundry.com/dynamic-programming-solutions-t-primes-problem/)   
+[Trigraphs Problem](https://www.sanfoundry.com/dynamic-programming-solutions-trigraphs-problem/)   
+
