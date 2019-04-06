@@ -8,8 +8,18 @@ For example, given the numbers [42, 56, 14], return 14.
 @Amazon
 @math
 @array
+@review
 @solved
 最大公约数
+
+@review
+跟很多Prime的问题有关
+https://www.geeksforgeeks.org/absolute-difference-between-the-product-of-non-prime-numbers-and-prime-numbers-of-an-array/
+https://www.geeksforgeeks.org/absolute-difference-between-the-sum-of-non-prime-numbers-and-prime-numbers-of-an-array/
+https://www.geeksforgeeks.org/print-all-distinct-integers-that-can-be-formed-by-k-numbers-from-a-given-array-of-n-numbers/
+https://www.geeksforgeeks.org/finding-lcm-two-array-numbers-without-using-gcd/
+https://www.geeksforgeeks.org/xor-of-all-prime-numbers-in-an-array/
+https://www.geeksforgeeks.org/find-k-numbers-occurrences-given-array/
  */
 public class D20190405 {
 
