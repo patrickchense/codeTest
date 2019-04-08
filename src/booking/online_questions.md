@@ -35,3 +35,58 @@ Given a string of parentheses, check if the parentheses are balanced. Then the q
 16. Given a string of characters, find the maximum substring with no repetitions.
 
 [careercup with bookings](https://careercup.appspot.com/page?pid=bookingcom-interview-questions&sort=date)
+17. Given a file containing n words.Given a word w and a number k.Find k words in the file occuring before occurence of w.Assume that the average word size is m in the file 
+    eg. 
+    aaa 
+    bbb 
+    ccc 
+    booking 
+    alpha 
+    beta 
+    gamma 
+    
+    for k=3 and w = booking 
+    the output should be [aaa,bbb,ccc,booking] 
+    similarly for k =2 and w = beta 
+    output should be [booking,alpha,beta] 
+    Assume that the file size can grow very large 
+    and try to get solution with space complexity lesser than O(n) 
+    
+    I suggessted solution for iterating through file until the word w is found and maintaiining a queue of size K 
+    The time complexity of my solution was O(nm) 
+    and space complexity was O(k) .Any answers to improve the time and space complexity 
+    Apparently they were looking for a better implementation of grep
+    很简单啊，queue，直接remove, 当arr[i] != w的时候，queue size == k, add, linkedlist就能支持, remove/add 都是O(1)
+18. Given arrays for N (>= 2) users, each representing the IDs of hotels visited, find the common IDs of the hotels visited amongst the users. 
+    
+    Input: 
+    userA = { 2, 3, 1 } 
+    userB = { 2, 5, 3 } 
+    userC = { 7, 3, 1 } 
+    
+    Output: 
+    {3} 
+    
+    Assumptions: 
+    Arrays are unsorted. 
+    
+    Cases: 
+    1) Each array consists of distinct hotel IDs 
+    2) Each array may contain duplicate hotel IDs
+    
+    我的想法，简单就是hashMap, 但是如果是sorted的话，不用这么复杂，如果不用space, 可以sort,O(3nlogn)，然后判断
+    https://www.geeksforgeeks.org/find-common-elements-three-sorted-arrays/   
+
+19. Given a set of hotels and its guests reviews, sort the hotels based on a list of words specified by a user. The criteria to sort the hotels should be how many times the words specified by the user is mentioned in the hotel reviews. 
+    
+    Input 
+    The first line contains a space-separated set of words which we want to find mentions in the hotel reviews. 
+    The second line contains one integer M, which is the number of reviews. 
+    This is followed by M+M lines, which alternates an hotel ID and a review belonging to that hotel. 
+    
+    Output 
+    A list of hotel IDs sorted, in descending order, by how many mentions they have of the words specified in the input. If the count is same, sort according to the hotel IDs.
+
+20. 
+    
+
