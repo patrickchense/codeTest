@@ -1,0 +1,17 @@
+all brackets related match summary:
+
+balanced problem:
+using stack to solve them, O(n) space, O(n) time
+Daily20181031
+
+D20190223 using * wildcard, 所以这里需要有个变通，*和(,)的计数，O(n), O(n)，可以优化到O(1)
+Daily20181229, 移除的问题, 类似上面的计数,对的，有几个left和right 多余的，sum就是结果
+
+其他相关
+Parentheses,  各种组合，这个和普通的字符组合又不同，backtracking(我的理解就是，str 往后+，通过recursive来达到)
+OuputContestMatch, 各种组合，逻辑的思考很重要，关键是理解 res[i], res[n-i] 每次一个组合(res[i],res[n-i]), 然后循环n=n/2
+
+
+
+
+

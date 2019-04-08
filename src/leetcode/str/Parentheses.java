@@ -20,6 +20,8 @@ For example, given n = 3, a solution set is:
 ]
 
 @backtracking
+@string
+@recursive
 
  */
 public class Parentheses {

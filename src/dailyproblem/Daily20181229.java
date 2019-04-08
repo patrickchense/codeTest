@@ -5,7 +5,9 @@ Given a string of parentheses, write a function to compute the minimum number of
 
 For example, given the string "()())()", you should return 1. Given the string ")(", you should return 2, since we must remove all of them.
 
-@google
+@Google
+@string
+@match
 @solved
  */
 public class Daily20181229 {

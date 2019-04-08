@@ -13,8 +13,7 @@ For example, (()* and (*) are balanced. )*( is not balanced.
 @pattern
 @needoptimize
 @solved
-@review
-
+@optimized
 
 一个pattern match的问题, 常用解法，dp, backtracking, stack,
 https://leetcode.com/problems/score-of-parentheses/description/
@@ -29,16 +28,23 @@ public class D20190223 {
     public static void main(String[] args) {
         String str = "(()*";
         System.out.println(parenthesesBalance(str));
+        System.out.println("o1:" + parenthesesBalanceO1(str));
         str = "(*)";
         System.out.println(parenthesesBalance(str));
+        System.out.println("o1:" + parenthesesBalanceO1(str));
         str = ")*(";
         System.out.println(parenthesesBalance(str));
+        System.out.println("o1:" + parenthesesBalanceO1(str));
 
         str = "(**))";
         System.out.println(parenthesesBalance(str));
+        System.out.println("o1:" + parenthesesBalanceO1(str));
 
         str = "(*)))";
         System.out.println(parenthesesBalance(str));
+        System.out.println("o1:" + parenthesesBalanceO1(str));
+
+
     }
 
     // 用了stack 就O(n) space了， 去掉stack？ 我其实只比较值钱那么一次的结果，记住prev就行
@@ -71,6 +77,25 @@ public class D20190223 {
         }
         if (stack.isEmpty()) return true;
         return Math.abs(left -right) <= star;
+    }
 
+    //O(1)
+    public static boolean parenthesesBalanceO1(String str) {
+        int left = 0;
+        int right = 0;
+        int star = 0;
+        for(char c : str.toCharArray()) {
+            if (c == '(') {
+                left ++;
+            }
+            else if (c == ')') {
+                if (left + star <= right) return false;
+                right++;
+            }
+            else if (c == '*') {
+                star++;
+            }
+        }
+        return Math.abs(left -right) <= star;
     }
 }
