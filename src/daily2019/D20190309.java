@@ -14,8 +14,11 @@ Given n = 27, return 3 since 27 = 32 + 32 + 32 = 9 + 9 + 9.
 @dp
 @recursive
 
+
 https://algorithms.tutorialhorizon.com/dynamic-programming-minimum-numbers-are-required-whose-square-sum-is-equal-to-a-given-number/ dp
 https://www.geeksforgeeks.org/minimum-number-of-squares-whose-sum-equals-to-given-number-n/  recursive
+
+这个问题的根据是coin change, https://algorithms.tutorialhorizon.com/dynamic-programming-minimum-coin-change-problem/
 
 关于square的一组题
 https://www.geeksforgeeks.org/paper-cut-minimum-number-squares/
