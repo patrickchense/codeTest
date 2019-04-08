@@ -12,7 +12,6 @@ Try solving this without creating a copy of the list. How many swap or move oper
 @array
 @rotate
 @answered
-@review
 @kth
 
 不创建额外的array的话，肯定要用length次吧?  len-k move up,  k swap to end, total len times
@@ -21,6 +20,7 @@ how? 写代码证明
 https://www.programcreek.com/2015/03/rotate-array-in-java/
 
 关键在于reverse 这些rotate array的题目很多都可以通过reverse来解决
+
 
  */
 public class D20190207 {
