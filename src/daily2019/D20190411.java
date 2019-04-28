@@ -54,7 +54,7 @@ public class D20190411 {
             min=Math.min(min,sum2);
         }
         if(s==min) return max;
-        return Math.max(max,s-min); // 为什么是 s-min 和 max 比较
+        return Math.max(max,s-min); // 为什么是 s-min 和 max 比较`
     }
 
     public int maxSubarraySumCircular(int[] A) {

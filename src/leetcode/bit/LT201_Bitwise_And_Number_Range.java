@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.bit;
 
 /*
 https://leetcode.com/problems/bitwise-and-of-numbers-range/
