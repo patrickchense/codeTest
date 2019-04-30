@@ -29,6 +29,7 @@ It doesn't matter what values are set beyond the returned length.
  */
 public class LT80_Remove_Duplicates_Array {
 
+    // O(n) O(1)
     public int removeDuplicates(int[] nums) {
         if (nums.length <= 2) {
             return nums.length;
