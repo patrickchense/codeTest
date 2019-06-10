@@ -1,9 +1,7 @@
 package adyen;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -59,13 +57,24 @@ public class StreamBug {
         if(pending == null || processed == null) {
             return Stream.empty();
         }
-        List<Long>  filteredProcessedId = processed
-                .flatMap(p -> p)
-                .filter(Objects::nonNull)
-                .filter(p -> p.getStatus() != null && p.getStatus().isPresent() && "DONE".equalsIgnoreCase(p.getStatus().get()))
-                .filter(p -> p.getId() != null && p.getId().length() > 0)
-                .map(p -> Long.parseLong(p.getId())).collect(Collectors.toList());
+//        List<Long>  filteredProcessedId = processed
+//                .flatMap(p -> p)
+//                .filter(Objects::nonNull)
+//                .filter(p -> p.getStatus() != null && p.getStatus().isPresent() && "DONE".equalsIgnoreCase(p.getStatus().get()))
+//                .filter(p -> p.getId() != null && p.getId().length() > 0 && pending.anyMatch(pp -> pp.equals(p.getId())))
+//                .map(p -> Long.parseLong(p.getId())).collect(Collectors.toList());
 
+//        return pending.filter(p -> filteredProcessedId.contains(p.getId()));
+
+        // using set
+        Set<Long>  filteredProcessedId = processed
+                .flatMap(Function.identity())
+                .filter(Objects::nonNull)
+                .filter(p -> Objects.nonNull(p.getId()))
+                .filter(p -> Objects.nonNull(p.getStatus()))
+                .filter(p -> p.getStatus().isPresent() && "DONE".equalsIgnoreCase(p.getStatus().get()))
+                .filter(p -> !p.getId().trim().isEmpty())
+                .map(p -> Long.parseLong(p.getId())).collect(Collectors.toSet());
         return pending.filter(p -> filteredProcessedId.contains(p.getId()));
     }
 
