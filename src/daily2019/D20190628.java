@@ -1,0 +1,12 @@
+package daily2019;
+
+/*
+Given a 32-bit positive integer N, determine whether it is a power of four in faster than O(log N) time.
+
+@medium
+@Indeed
+
+ */
+public class D20190628 {
+
+}
