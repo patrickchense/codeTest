@@ -18,4 +18,11 @@ Given the string ..R...L.L, you should return ..RR.LLLL.
  */
 public class D20190629 {
 
+    public static void main(String[] args) {
+
+    }
+
+    public static char[] domino(char[] original) {
+        return null;
+    }
 }

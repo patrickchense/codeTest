@@ -1,21 +1,24 @@
 package daily2019;
 
 /*
-In Ancient Greece, it was common to write text with the first line going left to right, the second line going right to left, and continuing to go back and forth. This style was called "boustrophedon".
+Huffman coding is a method of encoding characters based on their frequency. Each letter is assigned a variable-length binary string, such as 0101 or 111110, where shorter lengths correspond to more common letters. To accomplish this, a binary tree is built such that the path from the root to any leaf uniquely maps to a character. When traversing the path, descending to a left child corresponds to a 0 in the prefix, while descending right corresponds to 1.
 
-Given a binary tree, write an algorithm to print the nodes in boustrophedon order.
+Here is an example tree (note that only the leaf nodes have letters):
 
-For example, given the following tree:
+        *
+      /   \
+    *       *
+   / \     / \
+  *   a   t   *
+ /             \
+c               s
+With this encoding, cats would be represented as 0000110111.
 
-       1
-    /     \
-  2         3
- / \       / \
-4   5     6   7
-You should return [1, 3, 2, 4, 5, 6, 7].
+Given a dictionary of character frequencies, build a Huffman tree, and use it to determine a mapping between characters and their encoded binary strings.
 
+@Amazon
 @easy
-@Morgan Stanley
+
 
  */
 public class D20190621 {

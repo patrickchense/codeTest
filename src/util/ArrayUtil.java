@@ -42,6 +42,12 @@ public class ArrayUtil {
         }
     }
 
+    public static void printMatrixInt(int[][] matrix) {
+        for (int[] m : matrix) {
+            System.out.println(Arrays.toString(m));
+        }
+    }
+
     public static void reverse(int[] arr, int left, int right){
         if(arr == null || arr.length == 1)
             return;
