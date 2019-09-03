@@ -4,3 +4,5 @@ https://www.youtube.com/watch?v=TClRuEZ-uDg
 
 
 https://aonecode.com/amazon-interview-questions
+
+https://leetcode.com/discuss/interview-question?currentPage=1&orderBy=most_relevant&query=Amazon%20%7C%20OA%202019
