@@ -30,7 +30,32 @@ each element of array plants is an integer within the range [1..1,000,000];
 capacity is an integer within the range [1..1,000,000,000];
 the watering can is large enough to fully water any single plant.
 
-
+@dp
+@solved
+明显dp问题
  */
 public class WateringPlants {
+
+	public static void main(String[] args) {
+		System.out.println(minSteps(new int[]{2, 4, 5, 1, 2}, 6));
+	}
+
+	/*
+	dp formula
+		dp[i] = dp[i-1] + (left water < nums[i] ? 2 * (i-1) + 1 : 1)
+
+		O(n)
+	 */
+	public static int minSteps(int[] nums, int capacity) {
+		int pre = 1;
+		int res = -1;
+		int left = capacity - nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			res = pre + (left < nums[i] ? 2 * i : 0) + 1;
+			if (left < nums[i]) left += capacity - nums[i];
+			else left -= nums[i];
+			pre = res;
+		}
+		return res;
+	}
 }
