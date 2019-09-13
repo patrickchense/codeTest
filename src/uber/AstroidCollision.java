@@ -26,5 +26,6 @@ public class AstroidCollision {
     public static int[] astroidCollision(int[] ans) {
         List<Integer> res = new ArrayList<>();
 
+        return null;
     }
 }
