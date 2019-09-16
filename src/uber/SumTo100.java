@@ -1,7 +1,8 @@
 package uber;
 
 /*
-Add the mathematical operators + or - before any of the digits in the decimal numeric string 123456789 such that the resulting mathematical expression adds up to 100. Return all possible solutions.
+Add the mathematical operators + or - before any of the digits in the decimal numeric string 123456789
+such that the resulting mathematical expression adds up to 100. Return all possible solutions.
 
 There are 12 solutions:
 
@@ -21,4 +22,10 @@ There are 12 solutions:
 @phone
  */
 public class SumTo100 {
+
+	public static void main(String[] args) {
+
+	}
+
+
 }
