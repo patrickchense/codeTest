@@ -12,6 +12,7 @@ Output: ["Apple", "Me[lon]", "Or[a]nge", "Water[mel]on"].
 Explanation: While "Watermelon" contains three substrings from the parts array ("a", "mel", and "lon") "mel" is the longest substring
 that appears first in the string.
 
+@onsite
 
  */
 public class SurroundStrings {
