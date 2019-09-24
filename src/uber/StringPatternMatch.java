@@ -19,6 +19,43 @@ isMatch("abcc","a{1,3}b{1,3}cc{1,3}") → true
 
 @phone
 
+https://leetcode.com/discuss/interview-question/124924/Uber-or-Phone-screen-or-String-pattern-matching
+
  */
 public class StringPatternMatch {
+
+
+	public static boolean isMatch(String text, String pattern) {
+		return isMatch(text, 0, pattern, 0, new Boolean[text.length()][pattern.length()]);
+	}
+
+	private static boolean isMatch(String text, int t, String pattern, int p, Boolean[][] memo) {
+		if (t >= text.length() && p >= pattern.length()) return true;
+		if (t >= text.length() || p >= pattern.length()) return false;
+
+		if (memo[t][p] != null) return memo[t][p];
+
+		boolean match = false;
+
+		if (p + 1 < pattern.length() && pattern.charAt(p + 1) == '{') {
+			int end = pattern.indexOf('}', p + 2);
+			int count = getCount(pattern.substring(p + 2, end));
+
+			for (int i = t; --count >= 0 && text.charAt(t) == text.charAt(i); i++) {
+				if (isMatch(text, i + 1, pattern, end + 1, memo)) return true;
+			}
+		} else if (text.charAt(t) == pattern.charAt(p)) {
+			match = isMatch(text, t + 1, pattern, p + 1, memo);
+		}
+
+		return memo[t][p] = match;
+	}
+
+	// "1,3" -> 3 - 1 = 2
+	private static int getCount(String range) {
+		int comma = range.indexOf(',');
+		int start = Integer.parseInt(range.substring(0, comma));
+		int end = Integer.parseInt(range.substring(comma + 1));
+		return end - start;
+	}
 }

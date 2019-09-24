@@ -141,6 +141,7 @@ public class WordSearchII {
 		board[i][j] = ch;
 	}
 
+	// create Tire common  创建Tire树通用方法
 	public Trie createTrie(String[] words) {
 		Trie root = new Trie();
 		for (String word : words) {
