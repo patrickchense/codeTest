@@ -36,6 +36,19 @@
             <version>1.18.10</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- refer https://medium.com/better-programming/with-this-framework-you-can-unit-test-java-architecture-characterstics-c82b50154dd0 -->
+        <dependency>
+            <groupId>com.tngtech.archunit</groupId>
+            <artifactId>archunit</artifactId>
+            <version>0.8.0</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <!-- Reactor example -->
+
+        <!-- end Reactor -->
     </dependencies>
 
     <build>
