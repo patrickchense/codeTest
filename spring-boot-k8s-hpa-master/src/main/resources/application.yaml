@@ -9,3 +9,8 @@ worker:
   enabled: ${WORKER_ENABLED:true}
 store:
   enabled: ${STORE_ENABLED:true}
+
+#spring doc open-api
+springdoc:
+  api-docs:
+    path: /api-doc

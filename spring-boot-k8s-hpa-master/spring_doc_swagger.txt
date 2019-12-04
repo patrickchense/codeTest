@@ -1,0 +1,8 @@
+20191204
+增加spring doc swagger的例子
+
+https://www.baeldung.com/spring-rest-openapi-documentation
+
+还有webflux没试
+
+所有代码没有test

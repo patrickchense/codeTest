@@ -69,6 +69,19 @@
             <version>${activemq.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- spring openapi3.0 http://localhost:8080/v3/api-docs/ -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-core</artifactId>
+            <version>1.1.44</version>
+        </dependency>
+        <!-- swagger UI http://localhost:8080/swagger-ui.html-->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.1.44</version>
+        </dependency>
     </dependencies>
 
     <build>
