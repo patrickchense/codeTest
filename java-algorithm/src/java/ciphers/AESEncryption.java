@@ -55,8 +55,29 @@ public class AESEncryption {
 	}
 
 	/**
+	 * Decrypts encrypted byte array using the key used for encryption.
+	 *
+	 * @param byteCipherText
+	 * @param secKey
+	 * @return plainText
+	 * @throws NoSuchPaddingException
+	 * @throws NoSuchAlgorithmException
+	 * @throws InvalidKeyException
+	 * @throws BadPaddingException
+	 * @throws IllegalBlockSizeException
+	 */
+	public static String decryptText(byte[] byteCipherText, SecretKey secKey) throws NoSuchAlgorithmException,
+			NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+		// AES defaults to AES/ECB/PKCS5Padding in Java 7
+		Cipher aesCipher = Cipher.getInstance("AES");
+		aesCipher.init(Cipher.DECRYPT_MODE, secKey);
+		byte[] bytePlainText = aesCipher.doFinal(byteCipherText);
+		return new String(bytePlainText);
+	}
+
+	/**
 	 * Encrypts plainText in AES using the secret key
-	 * 
+	 *
 	 * @param plainText
 	 * @param secKey
 	 * @return byteCipherText (The encrypted text)
@@ -78,27 +99,6 @@ public class AESEncryption {
 		aesCipher.init(Cipher.ENCRYPT_MODE, secKey);
 		byte[] byteCipherText = aesCipher.doFinal(plainText.getBytes());
 		return byteCipherText;
-	}
-
-	/**
-	 * Decrypts encrypted byte array using the key used for encryption.
-	 * 
-	 * @param byteCipherText
-	 * @param secKey
-	 * @return plainText
-	 * @throws NoSuchPaddingException
-	 * @throws NoSuchAlgorithmException
-	 * @throws InvalidKeyException
-	 * @throws BadPaddingException
-	 * @throws IllegalBlockSizeException
-	 */
-	public static String decryptText(byte[] byteCipherText, SecretKey secKey) throws NoSuchAlgorithmException,
-			NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
-		// AES defaults to AES/ECB/PKCS5Padding in Java 7
-		Cipher aesCipher = Cipher.getInstance("AES");
-		aesCipher.init(Cipher.DECRYPT_MODE, secKey);
-		byte[] bytePlainText = aesCipher.doFinal(byteCipherText);
-		return new String(bytePlainText);
 	}
 
 	/**

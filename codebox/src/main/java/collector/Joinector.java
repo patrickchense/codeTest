@@ -1,5 +1,10 @@
 package collector;
 
+import com.fasterxml.jackson.core.util.BufferRecycler;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.BinaryOperator;
@@ -58,6 +63,9 @@ public class Joinector implements Collector<CharSequence, StringJoiner, String> 
                 StringJoiner::toString);           // finisher
     }
 
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
         List<String> tmp = new ArrayList();
         tmp.add("aaa");
@@ -70,7 +78,31 @@ public class Joinector implements Collector<CharSequence, StringJoiner, String> 
         String b = tmp.stream().collect(new Joinector(";"));
         System.out.println(b);
 
+        // inject json
+        String json = "{\"name\": \"abs\"}";
+        // inject reg
+        //language=RegExp
+        String checkVisa = "^4[0-9]{12}(?:[0-9]{3})?$";
 
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("abc.txt"));
+
+
+            int i = 0;
+
+
+
+            System.out.println("i = " + i);
+
+            System.out.println("Joinector.main");
+
+            System.out.println("args = [" + args + "]");
+
+            System.out.println();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 }
