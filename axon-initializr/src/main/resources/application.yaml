@@ -1,0 +1,219 @@
+initializr:
+  name:
+    value: axon
+  description:
+    value: 'An Axon Framework Sample Application'
+  group-id:
+    value: com.benwilcock
+  artifact-id:
+    value: axon-app
+  javaVersions:
+    - id: 11
+      default: false
+    - id: 1.8
+      default: true
+  languages:
+    - name: Java
+      id: java
+      default: true
+    - name: Kotlin
+      id: kotlin
+      default: false
+  packagings:
+    - name: Jar
+      id: jar
+      default: true
+  types:
+    - name: Maven Project
+      id: maven-project
+      description: Generate a Maven based project archive
+      tags:
+        build: maven
+        format: project
+      default: true
+      action: /starter.zip
+    - name: Maven POM
+      id: maven-build
+      description: Generate a Maven pom.xml
+      tags:
+        build: maven
+        format: build
+      default: false
+      action: /pom.xml
+  dependencies:
+    - name: Web
+      content:
+        - name: Spring Web
+          id: web
+          description: Build web, including RESTful, applications using Spring MVC. Uses Apache Tomcat as the default embedded container.
+          facets:
+            - web
+            - json
+          links:
+            - rel: guide
+              href: https://spring.io/guides/gs/rest-service/
+              description: Building a RESTful Web Service
+            - rel: reference
+              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-developing-web-applications
+            - rel: guide
+              href: https://spring.io/guides/gs/serving-web-content/
+              description: Serving Web Content with Spring MVC
+            - rel: guide
+              href: https://spring.io/guides/tutorials/bookmarks/
+              description: Building REST services with Spring
+    - name: Ops
+      content:
+        - name: Spring Boot Actuator
+          id: actuator
+          description: Supports built in (or custom) endpoints that let you monitor and manage your application - such as application health, metrics, sessions, etc.
+          links:
+            - rel: guide
+              href: https://spring.io/guides/gs/actuator-service/
+              description: Building a RESTful Web Service with Spring Boot Actuator
+            - rel: reference
+              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#production-ready
+    - name: Security
+      content:
+        - name: Spring Security
+          id: security
+          description: Highly customizable authentication and access-control framework for Spring applications.
+          links:
+            - rel: guide
+              href: https://spring.io/guides/gs/securing-web/
+              description: Securing a Web Application
+            - rel: guide
+              href: https://spring.io/guides/tutorials/spring-boot-oauth2/
+              description: Spring Boot and OAuth2
+            - rel: guide
+              href: https://spring.io/guides/gs/authenticating-ldap/
+              description: Authenticating a User with LDAP
+            - rel: reference
+              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-security
+    - name: Template Engines
+      content:
+        - name: Thymeleaf
+          id: thymeleaf
+          description: A modern server-side Java template engine for both web and standalone environments. Allows HTML to be correctly displayed in browsers and as static prototypes.
+          keywords:
+            - template
+          links:
+            - rel: guide
+              href: https://spring.io/guides/gs/handling-form-submission/
+              description: Handling Form Submission
+            - rel: reference
+              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-spring-mvc-template-engines
+    - name: SQL
+      content:
+        - name: Spring Data JPA
+          id: data-jpa
+          description: Persist data in SQL stores with Java Persistence API using Spring Data and Hibernate.
+          facets:
+            - jpa
+          aliases:
+            - jpa
+          links:
+            - rel: guide
+              href: https://spring.io/guides/gs/accessing-data-jpa/
+              description: Accessing Data with JPA
+            - rel: reference
+              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-jpa-and-spring-data
+        - name: MySQL Driver
+          id: mysql
+          description: MySQL JDBC and R2DBC driver.
+          groupId: mysql
+          artifactId: mysql-connector-java
+          scope: runtime
+          starter: false
+          links:
+            - rel: guide
+              href: https://spring.io/guides/gs/accessing-data-mysql/
+              description: Accessing data with MySQL
+        - name: H2 Database
+          id: h2
+          description: Provides a fast in-memory database that supports JDBC API and R2DBC access, with a small (2mb) footprint. Supports embedded and server modes as well as a browser based console application.
+          groupId: com.h2database
+          artifactId: h2
+          scope: runtime
+          starter: false
+        - name: PostgreSQL Driver
+          id: postgresql
+          description: A JDBC and R2DBC driver that allows Java programs to connect to a PostgreSQL database using standard, database independent Java code.
+          groupId: org.postgresql
+          artifactId: postgresql
+          scope: runtime
+          starter: false
+    - name: Messaging
+      content:
+        - name: Spring for RabbitMQ
+          id: amqp
+          description: Gives your applications a common platform to send and receive messages, and your messages a safe place to live until received.
+          keywords:
+            - messaging
+          links:
+            - rel: guide
+              href: https://spring.io/guides/gs/messaging-rabbitmq/
+              description: Messaging with RabbitMQ
+            - rel: reference
+              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-amqp
+    - name: Developer Tools
+      content:
+        - name: Spring Boot DevTools
+          id: devtools
+          groupId: org.springframework.boot
+          artifactId: spring-boot-devtools
+          scope: runtime
+          description: Provides fast application restarts, LiveReload, and configurations for enhanced development experience.
+          starter: false
+          links:
+            - rel: reference
+              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#using-boot-devtools
+        - name: Lombok
+          id: lombok
+          groupId: org.projectlombok
+          artifactId: lombok
+          scope: annotationProcessor
+          description: Java annotation library which helps to reduce boilerplate code.
+          starter: false
+    - name: NoSQL
+      content:
+        - name: Spring Data MongoDB
+          id: data-mongodb
+          description: Store data in flexible, JSON-like documents, meaning fields can vary from document to document and data structure can be changed over time.
+          links:
+            - rel: guide
+              href: https://spring.io/guides/gs/accessing-data-mongodb/
+              description: Accessing Data with MongoDB
+            - rel: reference
+              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-mongodb
+    - name: Axon Tools
+      content:
+        - name: Axon Framework
+          id: axon-starter
+          groupId: org.axonframework
+          artifactId: axon-spring-boot-starter
+          version: 4.2
+          description: Brings first-class support for CQRS, Event Sourcing, and DDD to SpringBoot including Commands, Queries, Aggregates, Events, Event Handlers, and more...
+          links:
+            - rel: reference
+              href: https://docs.axoniq.io/reference-guide/
+              description: The reference guide on how to use Axon
+            - rel: guide
+              href: https://www.youtube.com/watch?v=tqn9p8Duy54&list=PL4O1nDpoa5KQkkApGXjKi3rzUW3II5pjm
+              description: A full getting started tutorial for Axon in small simple steps.
+            - rel: source
+              href: https://github.com/AxonFramework
+              description: The open-source code repository on GitHub
+        - name: Axon Test
+          description: Axon Framework unit testing support.
+          id: axon-test
+          groupId: org.axonframework
+          artifactId: axon-test
+          version: 4.2
+          scope: test
+          starter: false
+        - name: Axon AMQP
+          description: Axon Spring Boot Starter for AMQP. For sending events via AMQP messaging servers such as RabbitMQ
+          id: axon-amqp-starter
+          groupId: org.axonframework.extensions.amqp
+          artifactId: axon-amqp-spring-boot-starter
+          version: 4.2
