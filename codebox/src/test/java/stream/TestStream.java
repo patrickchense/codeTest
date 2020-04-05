@@ -64,9 +64,9 @@ public class TestStream {
                 .collect(Collectors.toList());
 
         assertThat(empList, contains(
-                hasProperty("salary", equalTo(110000.0)),
-                hasProperty("salary", equalTo(220000.0)),
-                hasProperty("salary", equalTo(330000.0))
+                hasProperty("salary", equalTo(100010.0)),
+                hasProperty("salary", equalTo(200010.0)),
+                hasProperty("salary", equalTo(300010.0))
         ));
     }
 
