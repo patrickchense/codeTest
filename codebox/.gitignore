@@ -1,4 +1,5 @@
 ### Eclipse template
+*.iml
 *.pydevproject
 .metadata
 .gradle
