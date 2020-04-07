@@ -72,4 +72,24 @@ public class Daily20181216 {
         node = prev;
         return node;
     }
+
+
+    public static Node reverse(Node n) {
+        Node prev = null;
+        Node current = n;
+        Node next = null;
+        // 2->1, 类似swap？更复杂点
+        while(current != null) {
+            // next = 1->null;
+            next = current.next;
+            // 2->null
+            current.next = prev;
+            // prev = 2->;
+            prev = current;
+            // 1->2->null; //reverse
+            current = next;
+        }
+        n = prev;
+        return n;
+    }
 }

@@ -1,4 +1,4 @@
-# Netflix Built their Own Application Generator to Boost Dev Productivity. Here's How You Can, Too.
+# Netflix Built their Own code.cz.springsecurity.exp.Application Generator to Boost Dev Productivity. Here's How You Can, Too.
 
 If you watch [Taylor Wicksell of Netflix's SpringOne Platform keynote on YouTube][keynote] you can’t help but be blown away by the sheer productivity of their engineering team. Last year, over 300 Spring-based apps went into production – an incredible achievement. 
 
@@ -10,12 +10,12 @@ At Netflix, [Taylor][taylor] and his Java Platform team own the Java developer e
   
 ![Netflix's Java Platform Team's Top Technical Priorities][keynote-slide]
 
-Top of Taylor’s list of productivity secrets is Application Generators. Netflix found that developers adopt platforms far quicker when everything they need to get started is right there, at their fingertips. Application generators help developers to get started quickly by providing useful guide rails that reduce toil and ease their burden. Application generators also encourage common approaches to common problems – particularly useful if you have lots of teams creating microservices at the same time.
+Top of Taylor’s list of productivity secrets is code.cz.springsecurity.exp.Application Generators. Netflix found that developers adopt platforms far quicker when everything they need to get started is right there, at their fingertips. code.cz.springsecurity.exp.Application generators help developers to get started quickly by providing useful guide rails that reduce toil and ease their burden. code.cz.springsecurity.exp.Application generators also encourage common approaches to common problems – particularly useful if you have lots of teams creating microservices at the same time.
 
 
-Also high on Taylor's list is easing access to important libraries. Every enterprise has libraries - tools they rely on to simplify tasks or take care of the plumbing. These libraries are quite important and often including proprietary business logic that’s both private and unique. Application generators can help developers to get easy access to these libraries without having to delve into docs, wade through wiki’s, or search in maven repositories.
+Also high on Taylor's list is easing access to important libraries. Every enterprise has libraries - tools they rely on to simplify tasks or take care of the plumbing. These libraries are quite important and often including proprietary business logic that’s both private and unique. code.cz.springsecurity.exp.Application generators can help developers to get easy access to these libraries without having to delve into docs, wade through wiki’s, or search in maven repositories.
 
-## Are Application Generators Popular?
+## Are code.cz.springsecurity.exp.Application Generators Popular?
 
 
 Yes. You probably use an application generator already. The best example I can think of is [start.spring.io][start-spring], also known as the “Spring Initializr” (although others exist, such as [this one for .Net applications][start-steeltoe]).
@@ -31,7 +31,7 @@ The proof? Spring Initializr generated over 15 million Spring Boot projects in t
 The secret to its success is no secret at all: it’s superbly easy to use. You can use it [in your browser][start-spring], or directly from inside your IDE. You can even use it from the command line via cURL or [HTTPie][httpie] or from the [Spring Boot CLI][spring-boot-cli].
 
 
-## Build Your Own Application Generator
+## Build Your Own code.cz.springsecurity.exp.Application Generator
 
 
 How? With Spring of course! There’s even a library for it. The library is also called [Spring Initializr][spring-initializr-repo]. It’s the core library that powers [start.spring.io][start-spring], and it's super easy to customize. In the rest of this article, we’ll walk through the steps required to create your own customized initializr. 
@@ -106,7 +106,7 @@ initializr:
  name:
    value: axon
  description:
-   value: 'An Axon Framework Sample Application'
+   value: 'An Axon Framework Sample code.cz.springsecurity.exp.Application'
  group-id:
    value: com.benwilcock
   artifact-id:
@@ -293,5 +293,5 @@ I’ve only scratched the surface of what’s possible with [Spring Initializr][
 [img-intellij-project-metadata]: https://static.spring.io/blog/bwilcock/20191001/intellij-project-metadata.png "Setting the project metadata in IntelliJ IDEA's new project wizard."
 [img-jetbrains-graph]: https://static.spring.io/blog/bwilcock/20191001/jetbrains-graph.png "JetBrain User Survey illustrates that Spring Boot adoption is growing amongst developers."
 [img-keynote-intro]: https://static.spring.io/blog/bwilcock/20191001/keynote-intro.png "Netflix's Taylor Wicksell talking about Spring adoption at Netflix at SpringOne Platform 2019"
-[keynote-slide]: https://static.spring.io/blog/bwilcock/20191001/keynote-slide.png "Application Generators are top of the list for improving productivity and commonality with the team at Netflix"
+[keynote-slide]: https://static.spring.io/blog/bwilcock/20191001/keynote-slide.png "code.cz.springsecurity.exp.Application Generators are top of the list for improving productivity and commonality with the team at Netflix"
 [img-terminal]: https://static.spring.io/blog/bwilcock/20191001/terminal.png "Terminal output showing that our application shell started up"
