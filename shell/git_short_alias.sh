@@ -45,7 +45,6 @@ alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
 
 alias gpoat='git push origin --all && git push origin --tags'
 alias gmt='git mergetool --no-prompt'
-alias gpb="git push -u origin $(git branch --show-current)"
 
 alias gg='git gui citool'
 alias gga='git gui citool --amend'
@@ -93,9 +92,9 @@ function current_repository() {
 }
 
 # these aliases take advantage of the previous function
-alias ggpull='git pull origin $(current_branch)'
+alias glb='git pull origin $(current_branch)'
 alias ggpur='git pull --rebase origin $(current_branch)'
-alias ggpush='git push origin $(current_branch)'
+alias gpb='git push origin $(current_branch)'
 alias ggpnp='git pull origin $(current_branch) && git push origin $(current_branch)'
 
 # Pretty log messages
